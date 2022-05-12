@@ -1,0 +1,34 @@
+nodes:
+- custom_nodes.input.visual:
+    source: https://storage.googleapis.com/reighns/peekingduck/videos/push_ups.mp4
+    # source: https://storage.googleapis.com/reighns/peekingduck/videos/empty_video.mp4
+- model.yolo:
+    model_type: "v4tiny" 
+    iou_threshold: 0.1
+    score_threshold: 0.1
+    detect_ids: ["person"] # [0]
+    num_classes: 1
+#- custom_nodes.dabble.debug_yolo
+- model.movenet:
+    model_type: "singlepose_thunder"
+    resolution: {height: 256, width: 256} #TODO: check why the warning exists.
+    bbox_score_threshold: 0.05
+    keypoint_score_threshold: 0.05
+#- custom_nodes.dabble.debug_posenet
+- dabble.fps
+#- custom_nodes.dabble.debug_exercise_counter
+- custom_nodes.dabble.exercise_counter:
+    keypoint_threshold: 0.3
+    exercise_name: "push_ups"
+- draw.poses
+# - model.mtcnn:
+#     min_size: 20
+#     score_threshold: 0.1
+# - draw.mosaic_bbox
+- draw.legend:
+    show: ["fps"]
+- output.csv_writer:
+    stats_to_track: ["keypoints", "bboxes", "bbox_labels", "num_push_ups", "frame_count", "body_direction", "elbow_angle","shoulder_keypoint", "elbow_keypoint", "wrist_keypoint", "filename"]
+    file_path: "./stores/artifacts/push_ups_output_movenet.csv"
+    logging_interval: 0
+- output.screen

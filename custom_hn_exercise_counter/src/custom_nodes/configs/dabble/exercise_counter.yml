@@ -1,0 +1,7 @@
+# Dabble node has both input and output
+input: ["img", "bboxes", "bbox_scores", "keypoints", "keypoint_scores", "filename"]
+output: ["frame_count", "num_push_ups", "body_direction", "elbow_angle", "shoulder_keypoint", "elbow_keypoint", "wrist_keypoint", "filename"]
+
+# Optional configs
+keypoint_threshold: 0.3
+exercise_name: "push_ups"
