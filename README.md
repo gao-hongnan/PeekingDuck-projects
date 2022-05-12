@@ -1,5 +1,5 @@
 <div align="center">
-<h1>PeekingDuck Exercise Counter</a></h1>
+<h1>PeekingDuck Projects</a></h1>
 by Hongnan Gao
 1st May, 2022
 <br>
@@ -7,11 +7,11 @@ by Hongnan Gao
 
 
 <h4 align="center">
-  <a href="https://reighns92.github.io/PeekingDuck-exercise-counter/workflows/">Workflows</a>
+  <a href="https://reighns92.github.io/PeekingDuck-projects/workflows/">Workflows</a>
   <span> · </span>
-  <a href="https://reighns92.github.io/PeekingDuck-exercise-counter/exercise_counter/">Exercise Counter Tutorial</a>
+  <a href="https://reighns92.github.io/PeekingDuck-projects/exercise_counter/">Exercise Counter Tutorial</a>
   <span> · </span>
-  <a href="https://reighns92.github.io/PeekingDuck-exercise-counter/melanoma_gradcam/">Melanoma Prediction with Grad-CAM Tutorial</a>
+  <a href="https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/">Melanoma Prediction with Grad-CAM Tutorial</a>
 </h4>
 
 ---
