@@ -16,6 +16,8 @@ from custom_hn_exercise_counter.src.custom_nodes.dabble.utils import (
     map_keypoint_to_image_coords,
 )
 
+# TODO: add shape hintings.
+
 
 @dataclass(frozen=True)
 class GlobalParams:
@@ -80,16 +82,20 @@ class Node(AbstractNode):
     Attributes:
         self.frame_count (int): Track the number of frames processed.
         self.expected_pose (str): The expected pose. Default: "down".
-        self.num_push_ups (float): Cumulative number of push ups.
+        self.num_push_ups (float): Cumulative number of push ups. Default: 0.
         self.have_started_push_ups (bool): Whether or not the push ups have started.
         self.elbow_angle (float): Angle of the elbow.
     """
 
     def __init__(self, config: Dict[str, Any] = None, **kwargs: Any) -> None:
         super().__init__(config, node_path=__name__, **kwargs)
-        # setup object working variables
+
+        self.logger = logging.getLogger(__name__)
+
         self.exercise_name: str
         self.keypoint_threshold: float  # ignore keypoints below this threshold
+
+        self.logger.info(f"Initialize Exercise Type: {self.exercise_name}!")
 
         self.frame_count = 0
 
@@ -107,10 +113,8 @@ class Node(AbstractNode):
             "left_wrist",
         ]
 
+        # each element in the self.interested_keypoints list will now become an attribute initialized to None
         self.reset_keypoints_to_none()
-
-        self.logger = logging.getLogger(__name__)
-        self.logger.info(f"Initialize Exercise Type: {self.exercise_name}!")
 
     def reset_keypoints_to_none(self) -> None:
         """Reset all keypoints attributes to None after each frame."""
@@ -134,24 +138,24 @@ class Node(AbstractNode):
         Elbow angle is defined by connecting the wrist to the elbow to the shoulder.
 
         Args:
-            elbow_angle (np.float): The angle of the elbow.
+            elbow_angle (float): The angle of the elbow.
 
         Returns:
-            bool: True if the pose is a start pose, False otherwise.
+            bool: True if the pose is a up pose, False otherwise.
         """
         return elbow_angle > self.push_up_pose.starting_elbow_angle
 
     def is_down_pose(self, elbow_angle: float) -> None:
         """Checks if the pose is an "down" pose by checking if the elbow angle is
-        more than the starting elbow angle threshold.
+        more than the ending elbow angle threshold.
 
         Elbow angle is defined by connecting the wrist to the elbow to the shoulder.
 
         Args:
-            elbow_angle (np.float): The angle of the elbow.
+            elbow_angle (float): The angle of the elbow.
 
         Returns:
-            bool: True if the pose is a start pose, False otherwise.
+            bool: True if the pose is a down pose, False otherwise.
         """
         return elbow_angle <= self.push_up_pose.ending_elbow_angle
 
@@ -163,7 +167,7 @@ class Node(AbstractNode):
     ) -> bool:
         """Checks if the bounding box or keypoints are empty.
 
-        If any of them are empty, then we will not draw the bounding box or keypoints.
+        If any of them are empty, then we won't perform any further processing and go to next frame.
 
         Args:
             bboxes (np.ndarray): The bounding boxes.
@@ -171,7 +175,7 @@ class Node(AbstractNode):
             keypoint_scores (np.ndarray): The keypoint scores.
 
         Returns:
-            bool: True if the bounding box and keypoints are empty, False otherwise.
+            bool: True if the bounding box or keypoints are empty, False otherwise.
         """
 
         return (
@@ -342,11 +346,23 @@ class Node(AbstractNode):
 
         Args:
             inputs (dict): Dictionary with keys
-                "img", "bboxes", "bbox_scores", "keypoints", "keypoint_scores".
+                - img (np.ndarray): The image in each frame.
+                - bboxes (np.ndarray): The bounding boxes predicted in each frame. Note this belongs to MoveNet.
+                - bbox_scores (np.ndarray): The bounding box scores predicted in each frame. Note this belongs to Yolo.
+                - keypoints (np.ndarray): The keypoints predicted in each frame.
+                - keypoint_scores (np.ndarray): The keypoint scores predicted in each frame.
+                - filename (str): The filename of the image/video.
 
         Returns:
             outputs (dict): Dictionary with keys
-                "frame_count", "num_waves", "body_direction", "elbow_angle", "shoulder_keypoint", "elbow_keypoint", "wrist_keypoint"
+                - filename: The filename of the image/video.
+                - expected_pose: The expected pose of the image/video.
+                - num_push_ups: The number of cumulative push ups.
+                - frame_count: The number of frames processed.
+                - elbow_angle: The angle between the wrist, elbow and shoulder.
+                - elbow_keypoint: The keypoint coordinates of the elbow.
+                - shoulder_keypoint: The keypoint coordinates of the shoulder.
+                - wrist_keypoint: The keypoint coordinates of the wrist.
         """
 
         # get required inputs from pipeline
@@ -357,7 +373,8 @@ class Node(AbstractNode):
         keypoint_scores = inputs["keypoint_scores"]
         filename = inputs["filename"]
 
-        img_size = (img.shape[1], img.shape[0])  # image width, height
+        # image width, height
+        img_size = (img.shape[1], img.shape[0])
 
         # frame count should not be in the if-clause
         self.frame_count += 1
@@ -365,13 +382,12 @@ class Node(AbstractNode):
         if not self.is_bbox_or_keypoints_empty(
             bboxes, keypoints, keypoint_scores
         ):
-
-            # note this bbox is from the pose estimation model and not from yolo but bbox_scores is from yolo
-            the_bbox = bboxes[0]  # image only has one person
-            # only one set of scores and handle this differently from is_bbox_or_keypoints_empty cause this is from yolo..
+            # assume each frame has only one person;
+            # note this bbox is from the posenet/movenet and not from yolo.
+            the_bbox = bboxes[0]
+            # bbox_scores are from yolo and not posenet/movenet.
             the_bbox_score = bbox_scores[0] if len(bbox_scores) > 0 else 0
 
-            # y1 and x2 are private since it isn't called
             x1, _y1, _x2, y2 = map_bbox_to_image_coords(the_bbox, img_size)
             score_str = f"BBox {the_bbox_score:0.2f}"
 
@@ -387,13 +403,16 @@ class Node(AbstractNode):
                 thickness=3,
             )
 
-            the_keypoints = keypoints[0]  # image only has one person
-            the_keypoint_scores = keypoint_scores[0]  # only one set of scores
+            # assume each frame has only one person;
+            the_keypoints = keypoints[0]
+            the_keypoint_scores = keypoint_scores[0]
 
+            # count the number of push ups
             self.count_push_ups(
                 img, img_size, the_keypoints, the_keypoint_scores
             )
-        # careful not to indent this return statement
+
+        # careful not to indent this return statement;
         # if the if-clause is false, then no dict will be returned and will crash the pipeline
         return {
             "filename": filename,
