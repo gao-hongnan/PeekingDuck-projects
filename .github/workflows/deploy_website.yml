@@ -1,0 +1,42 @@
+name: Deploy Website to GitHub Pages
+
+on: 
+  push:
+    branches: [master]
+    paths: 
+      - "docs/**"
+      - "mkdocs.yml"
+      - ".github/workflows/deploy_website.yml"
+  
+permissions: write-all
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Website
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+          architecture: x64
+      - name: Install dependencies
+        run: | # this symbol is called a multiline string
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -e . 
+
+      - name: Build Website
+        run: |
+          mkdocs build
+      - name: Push Built Website to gh-pages Branch
+        run: |
+          git config --global user.name 'Hongnan G.'
+          git config --global user.email 'reighns92@users.noreply.github.com'
+          ghp-import \
+          --no-jekyll \
+          --force \
+          --no-history \
+          --push \
+          --message "Deploying ${{ github.sha }}" \
+          site
