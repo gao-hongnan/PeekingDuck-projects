@@ -34,12 +34,12 @@ git clone # clone or download the repo to your working dir
 pip install -e . # install the project
 ```
 
-For a more detailed workflow, see the [Workflows](https://reighns92.github.io/PeekingDuck-exercise-counter/workflows/) section.
+For a more detailed workflow, see the [Workflows](https://reighns92.github.io/PeekingDuck-projects/workflows/) section.
 
 ## Tutorials
 
-- [PeekingDuck Exercise Counter](https://reighns92.github.io/PeekingDuck-exercise-counter/exercise_counter/)
-- [PeekingDuck Grad-CAM](https://reighns92.github.io/PeekingDuck-exercise-counter/melanoma_gradcam/)
+- [PeekingDuck Exercise Counter](https://reighns92.github.io/PeekingDuck-projects/exercise_counter/)
+- [PeekingDuck Grad-CAM](https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/)
 
 Gallery
 -------
