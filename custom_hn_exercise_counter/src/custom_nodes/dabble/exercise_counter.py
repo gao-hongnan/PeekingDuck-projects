@@ -19,13 +19,19 @@ from custom_hn_exercise_counter.src.custom_nodes.dabble.utils import (
 
 @dataclass(frozen=True)
 class GlobalParams:
-    """Global parameters for the node."""
+    """Global parameters for the node.
+
+    Attributes:
+        FONT (int): Font for the text.
+        WHITE (int): White color in BGR.
+        YELLOW (int): Yellow color in BGR.
+        KP_NAME_TO_INDEX (Dict[str, int]): PoseNet/MoveNet's skeletal keypoints name to index mapping.
+    """
 
     FONT: int = cv2.FONT_HERSHEY_SIMPLEX
-    WHITE: Tuple[int] = (255, 255, 255)  # opencv loads file in BGR format
+    WHITE: Tuple[int] = (255, 255, 255)
     YELLOW: Tuple[int] = (0, 255, 255)
 
-    # PoseNet/MoveNet's skeletal keypoints name to index mapping.
     KP_NAME_TO_INDEX: Dict[str, int] = field(
         default_factory=lambda: {
             "nose": 0,
@@ -49,13 +55,17 @@ class GlobalParams:
     )
 
 
-# frozen false since will be mutating the correct_pose_msg
+# TODO: Can consider passing in as optional arguments in .yml.
 @dataclass(frozen=False)
 class PushupPose:
+    """Push up pose parameters.
 
-    # angle > 160
+    Attributes:
+        starting_elbow_angle (float): The threshold angle formed between the wrist, elbow and shoulder for starting (up) pose.
+        ending_elbow_angle (float): The threshold angle formed between the wrist, elbow and shoulder for ending (down) pose.
+    """
+
     starting_elbow_angle: float = 155
-    # angle < 90
     ending_elbow_angle: float = 90
 
 
