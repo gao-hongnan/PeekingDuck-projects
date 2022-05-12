@@ -1,0 +1,36 @@
+input: ["img"]
+output: ["pred_label", "pred_score", "gradcam_image"]
+
+weights_parent_dir: pytorch_models
+weights: {
+    model_subdir: resnet50d,
+    blob_file: resnet50d.zip,
+    classes_file: melanoma_class_mapping.yml,
+    model_file: {
+        resnet34d: resnet34d.pt,
+        resnet50d: resnet50d.pt,
+    }
+}
+
+model_params: {
+        model_name: resnet50d,
+        out_features: 2,
+        in_channels: 3,
+        pretrained: false,
+        use_meta: false
+}
+
+num_classes: 2
+
+class_label_map: {
+    0: "benign",
+    1: "malignant",
+}
+
+model_type: resnet50d # yolox-tiny, yolox-s, yolox-m, or yolox-l
+input_size: 224
+mean: [0.485, 0.456, 0.406]
+std: [0.229, 0.224, 0.225]
+half: false
+plot_gradcam: true
+

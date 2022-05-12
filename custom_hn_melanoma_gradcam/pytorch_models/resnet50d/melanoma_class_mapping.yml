@@ -1,0 +1,4 @@
+class_names: {
+    0: "benign",
+    1: "malignant",
+}

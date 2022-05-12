@@ -1,0 +1,9 @@
+nodes:
+- custom_nodes.input.visual:
+   source: melanoma_data/test
+- custom_nodes.model.melanoma_classifier
+- output.csv_writer:
+   stats_to_track: ["filename", "pred_label", "pred_score"]
+   file_path: "./stores/artifacts/resnet_melanoma.csv"
+   logging_interval: 0
+- custom_nodes.output.screen
