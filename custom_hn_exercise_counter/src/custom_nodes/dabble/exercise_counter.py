@@ -57,7 +57,6 @@ class PushupPose:
     starting_elbow_angle: float = 155
     # angle < 90
     ending_elbow_angle: float = 90
-    correct_pose_msg: str = "INCORRECT POSE!"
 
 
 class Node(AbstractNode):
@@ -146,9 +145,8 @@ class Node(AbstractNode):
         """
         return elbow_angle <= self.push_up_pose.ending_elbow_angle
 
-    # TODO: change name from and to or
     @staticmethod
-    def is_bbox_and_keypoints_empty(
+    def is_bbox_or_keypoints_empty(
         bboxes: np.ndarray,
         keypoints: np.ndarray,
         keypoint_scores: np.ndarray,
@@ -189,7 +187,7 @@ class Node(AbstractNode):
             the_keypoint_scores (np.ndarray): The keypoint scores predicted in each frame.
         """
 
-        interested_keypoints = {
+        interested_keypoints_names_to_index = {
             self.global_params.KP_NAME_TO_INDEX[
                 interested_keypoint
             ]: interested_keypoint
@@ -208,8 +206,10 @@ class Node(AbstractNode):
                 )
                 x_y_str = f"({x}, {y})"
 
-                if keypoint_idx in interested_keypoints:
-                    keypoint_name = interested_keypoints[keypoint_idx]
+                if keypoint_idx in interested_keypoints_names_to_index:
+                    keypoint_name = interested_keypoints_names_to_index[
+                        keypoint_idx
+                    ]
                     setattr(self, keypoint_name, (x, y))
                     the_color = self.global_params.YELLOW
                 else:
@@ -245,12 +245,8 @@ class Node(AbstractNode):
                     self.is_down_pose(left_elbow_angle)
                     and self.expected_pose == "down"
                 ):
-                    if self.expected_pose == "down":
-                        self.inc_num_push_ups()
-                        self.expected_pose = "up"
-                        self.push_up_pose.correct_pose_msg = "Go down!"
-                else:
-                    self.push_up_pose.correct_pose_msg = "Incorrect pose!"
+                    self.inc_num_push_ups()
+                    self.expected_pose = "up"
 
                 if (
                     self.is_up_pose(left_elbow_angle)
@@ -258,9 +254,6 @@ class Node(AbstractNode):
                 ):
                     self.inc_num_push_ups()
                     self.expected_pose = "down"
-                    self.push_up_pose.correct_pose_msg = "Go up!"
-                else:
-                    self.push_up_pose.correct_pose_msg = "Incorrect pose!"
 
             pushup_str = f"#push_ups = {self.num_push_ups}"
             draw_text(
@@ -359,13 +352,13 @@ class Node(AbstractNode):
         # frame count should not be in the if-clause
         self.frame_count += 1
 
-        if not self.is_bbox_and_keypoints_empty(
+        if not self.is_bbox_or_keypoints_empty(
             bboxes, keypoints, keypoint_scores
         ):
 
             # note this bbox is from the pose estimation model and not from yolo but bbox_scores is from yolo
             the_bbox = bboxes[0]  # image only has one person
-            # only one set of scores and handle this differently from is_bbox_and_keypoints_empty cause this is from yolo..
+            # only one set of scores and handle this differently from is_bbox_or_keypoints_empty cause this is from yolo..
             the_bbox_score = bbox_scores[0] if len(bbox_scores) > 0 else 0
 
             # y1 and x2 are private since it isn't called
@@ -394,7 +387,7 @@ class Node(AbstractNode):
         # if the if-clause is false, then no dict will be returned and will crash the pipeline
         return {
             "filename": filename,
-            "body_direction": self.expected_pose,
+            "expected_pose": self.expected_pose,
             "num_push_ups": self.num_push_ups,
             "frame_count": self.frame_count,
             "elbow_angle": self.elbow_angle,

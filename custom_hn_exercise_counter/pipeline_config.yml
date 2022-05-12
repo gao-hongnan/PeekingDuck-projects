@@ -28,7 +28,7 @@ nodes:
 - draw.legend:
     show: ["fps"]
 - output.csv_writer:
-    stats_to_track: ["keypoints", "bboxes", "bbox_labels", "num_push_ups", "frame_count", "body_direction", "elbow_angle","shoulder_keypoint", "elbow_keypoint", "wrist_keypoint", "filename"]
+    stats_to_track: ["keypoints", "bboxes", "bbox_labels", "num_push_ups", "frame_count", "expected_pose", "elbow_angle","shoulder_keypoint", "elbow_keypoint", "wrist_keypoint", "filename"]
     file_path: "./stores/artifacts/push_ups_output_movenet.csv"
     logging_interval: 0
 - output.screen
