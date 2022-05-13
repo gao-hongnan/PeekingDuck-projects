@@ -41,13 +41,19 @@ For a more detailed workflow, see the [Workflows](https://reighns92.github.io/Pe
 - [PeekingDuck Exercise Counter](https://reighns92.github.io/PeekingDuck-projects/exercise_counter/)
 - [PeekingDuck Grad-CAM](https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/)
 
-Gallery
--------
+## Gallery
+
+### Push-up Counter Demo
 
 The demo of the push-up counter is below. The original video is taken from [YouTube](https://www.youtube.com/watch?v=1D_HvjxB3Ps). The counter is displayed in yellow font on the top left corner of the video.
 
 [![Demo Count Push Ups](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo.gif)](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo.gif)
 
+### Melanoma Grad-CAM Demo
+
+The demo of Melanoma Grad-CAM demo is shown below:
+
+![](https://storage.googleapis.com/reighns/peekingduck/images/gradcam_demo.PNG)
 
 
 References
