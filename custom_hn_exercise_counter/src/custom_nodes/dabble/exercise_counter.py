@@ -16,8 +16,6 @@ from custom_hn_exercise_counter.src.custom_nodes.dabble.utils import (
     map_keypoint_to_image_coords,
 )
 
-# TODO: add shape hintings.
-
 
 @dataclass(frozen=True)
 class GlobalParams:
@@ -94,13 +92,21 @@ class Node(AbstractNode):
        config (:obj:`Dict[str, Any]` | :obj:`None`): Node configuration.
        config.exercise_name (str): Name of the exercise. Default: "pushups".
        config.keypoint_threshold (float): Ignore keypoints below this threshold. Default: 0.3.
+       config.push_up_pose_params (:obj:`Dict[str, Any]`): Parameters for the push up pose. Default: {starting_elbow_angle: 155, ending_elbow_angle: 90}.
+
 
     Attributes:
         self.frame_count (int): Track the number of frames processed.
         self.expected_pose (str): The expected pose. Default: "down".
         self.num_push_ups (float): Cumulative number of push ups. Default: 0.
-        self.have_started_push_ups (bool): Whether or not the push ups have started.
-        self.elbow_angle (float): Angle of the elbow.
+        self.have_started_push_ups (bool): Whether or not the push ups have started. Default: False.
+        self.elbow_angle (float): Angle of the elbow. Default: None.
+        self.global_params_dataclass (GlobalParams): Global parameters for the node.
+        self.push_up_pose_params_dataclass (PushupPoseParams): Push up pose parameters.
+        self.interested_keypoints (List[str]): List of keypoints to track. Default: ["left_elbow", "left_shoulder", "left_wrist"].
+        self.left_elbow (float): Keypoints of the left elbow. Default: None.
+        self.left_shoulder (float): Keypoints of the left shoulder. Default: None.
+        self.left_wrist (float): Keypoints of the left wrist. Default: None.
     """
 
     def __init__(self, config: Dict[str, Any] = None, **kwargs: Any) -> None:
@@ -333,7 +339,7 @@ class Node(AbstractNode):
             return_as_degrees (bool): Returns angle in degrees if True else radians. Default: True.
 
         Returns:
-            angle (float): Angle between vectors BA and BC.
+            angle (float): Angle between vectors BA and BC in radians or degrees.
 
         Shape:
             - Input:
@@ -377,6 +383,9 @@ class Node(AbstractNode):
                 - keypoints (np.ndarray): The keypoints predicted in each frame.
                 - keypoint_scores (np.ndarray): The keypoint scores predicted in each frame.
                 - filename (str): The filename of the image/video.
+
+        Note:
+            To check the shapes of bboxes, bbox_scores, keypoints, and keypoint_scores, please refer to [PeekingDuck API Documentation](https://peekingduck.readthedocs.io/en/stable/nodes/model.movenet.html#module-model.movenet).
 
         Returns:
             outputs (dict): Dictionary with keys

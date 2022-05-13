@@ -188,6 +188,8 @@ We will be using [Mkdocs](https://www.mkdocs.org/) to generate our markdown docu
           features:
             - content.code.annotate
         markdown_extensions:
+          - attr_list
+          - md_in_html
           - admonition
           - footnotes
           - pymdownx.highlight
