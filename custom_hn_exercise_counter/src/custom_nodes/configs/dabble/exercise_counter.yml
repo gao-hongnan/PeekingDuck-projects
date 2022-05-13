@@ -5,3 +5,7 @@ output: ["frame_count", "num_push_ups", "expected_pose", "elbow_angle", "shoulde
 # Optional configs
 keypoint_threshold: 0.3
 exercise_name: "push_ups"
+push_up_pose_params: {
+    starting_elbow_angle: 155,
+    ending_elbow_angle: 90,
+}   

@@ -4,7 +4,7 @@ Custom node to show keypoints and count the number of push ups (sit ups).
 # pylint: disable=import-error
 import logging
 from dataclasses import dataclass, field
-from typing import Any, Dict, Tuple
+from typing import Any, Dict, Tuple, Type
 
 import cv2
 import numpy as np
@@ -57,9 +57,8 @@ class GlobalParams:
     )
 
 
-# TODO: Can consider passing in as optional arguments in .yml.
 @dataclass(frozen=False)
-class PushupPose:
+class PushupPoseParams:
     """Push up pose parameters.
 
     Attributes:
@@ -67,8 +66,25 @@ class PushupPose:
         ending_elbow_angle (float): The threshold angle formed between the wrist, elbow and shoulder for ending (down) pose.
     """
 
-    starting_elbow_angle: float = 155
-    ending_elbow_angle: float = 90
+    starting_elbow_angle: float
+    ending_elbow_angle: float
+
+    @classmethod
+    def from_dict(
+        cls: Type["PushupPoseParams"], params_dict: Dict[str, Any]
+    ) -> Type["PushupPoseParams"]:
+        """Takes in a dictionary of parameters and returns a PushupPoseParams Dataclass.
+
+        Args:
+            params_dict (Dict[str, Any]): Dictionary of parameters.
+
+        Returns:
+            (PushupPoseParams): Dataclass with the parameters initalized.
+        """
+        return cls(
+            starting_elbow_angle=params_dict["starting_elbow_angle"],
+            ending_elbow_angle=params_dict["ending_elbow_angle"],
+        )
 
 
 class Node(AbstractNode):
@@ -94,6 +110,7 @@ class Node(AbstractNode):
 
         self.exercise_name: str
         self.keypoint_threshold: float  # ignore keypoints below this threshold
+        self.push_up_pose_params: Dict[str, Any]
 
         self.logger.info(f"Initialize Exercise Type: {self.exercise_name}!")
 
@@ -104,8 +121,10 @@ class Node(AbstractNode):
         self.have_started_push_ups = False
         self.elbow_angle = None
 
-        self.global_params = GlobalParams()
-        self.push_up_pose = PushupPose()
+        self.global_params_dataclass = GlobalParams()
+        self.push_up_pose_params_dataclass = PushupPoseParams.from_dict(
+            self.push_up_pose_params
+        )
 
         self.interested_keypoints = [
             "left_elbow",
@@ -143,7 +162,10 @@ class Node(AbstractNode):
         Returns:
             bool: True if the pose is a up pose, False otherwise.
         """
-        return elbow_angle > self.push_up_pose.starting_elbow_angle
+        return (
+            elbow_angle
+            > self.push_up_pose_params_dataclass.starting_elbow_angle
+        )
 
     def is_down_pose(self, elbow_angle: float) -> None:
         """Checks if the pose is an "down" pose by checking if the elbow angle is
@@ -157,7 +179,10 @@ class Node(AbstractNode):
         Returns:
             bool: True if the pose is a down pose, False otherwise.
         """
-        return elbow_angle <= self.push_up_pose.ending_elbow_angle
+        return (
+            elbow_angle
+            <= self.push_up_pose_params_dataclass.ending_elbow_angle
+        )
 
     @staticmethod
     def is_bbox_or_keypoints_empty(
@@ -202,7 +227,7 @@ class Node(AbstractNode):
         """
 
         interested_keypoints_names_to_index = {
-            self.global_params.KP_NAME_TO_INDEX[
+            self.global_params_dataclass.KP_NAME_TO_INDEX[
                 interested_keypoint
             ]: interested_keypoint
             for interested_keypoint in self.interested_keypoints
@@ -225,9 +250,9 @@ class Node(AbstractNode):
                         keypoint_idx
                     ]
                     setattr(self, keypoint_name, (x, y))
-                    the_color = self.global_params.YELLOW
+                    the_color = self.global_params_dataclass.YELLOW
                 else:
-                    the_color = self.global_params.WHITE
+                    the_color = self.global_params_dataclass.WHITE
 
                 draw_text(
                     img,
@@ -274,7 +299,7 @@ class Node(AbstractNode):
                 img,
                 pushup_str,
                 (20, 30),
-                color=self.global_params.YELLOW,
+                color=self.global_params_dataclass.YELLOW,
                 fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                 fontScale=1,
                 thickness=3,
@@ -397,7 +422,7 @@ class Node(AbstractNode):
                 img,
                 score_str,
                 (x1, y2 - 30),
-                color=self.global_params.WHITE,
+                color=self.global_params_dataclass.WHITE,
                 fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                 fontScale=1.0,
                 thickness=3,
