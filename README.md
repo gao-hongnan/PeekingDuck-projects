@@ -47,7 +47,7 @@ For a more detailed workflow, see the [Workflows](https://reighns92.github.io/Pe
 
 The demo of the push-up counter is below. The original video is taken from [YouTube](https://www.youtube.com/watch?v=1D_HvjxB3Ps). The counter is displayed in yellow font on the top left corner of the video.
 
-[![Demo Count Push Ups](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo.gif)](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo.gif)
+![Demo Count Push Ups](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo_less_than_5mb.gif)
 
 ### Melanoma Grad-CAM Demo
 
