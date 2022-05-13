@@ -11,7 +11,16 @@ import numpy as np
 @pytest.fixture
 def calculate_angle():
     node = Node(
-        {"input": ["none"], "output": ["none"], "exercise_name": "push_ups"}
+        {
+            "input": ["none"],
+            "output": ["none"],
+            "exercise_name": "push_ups",
+            "keypoint_threshold": 0.3,
+            "push_up_pose_params": {
+                "starting_elbow_angle": 155,
+                "ending_elbow_angle": 90,
+            },
+        }
     )
     return node
 
