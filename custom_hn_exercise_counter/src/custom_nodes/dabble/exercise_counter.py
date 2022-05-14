@@ -73,12 +73,19 @@ class PushupPoseParams:
     ) -> Type["PushupPoseParams"]:
         """Takes in a dictionary of parameters and returns a PushupPoseParams Dataclass.
 
+        Note:
+            One can also initialize the dataclass push_up_pose = PushupPoseParams(**params_dict).
+            However this is assuming that params_dict only contain keys that are in the dataclass.
+            May consider a method to get the keys of the dataclass to reduce typing out the keys below.
+            [Reference](https://stackoverflow.com/questions/66499217/python-how-to-get-attributes-and-their-type-from-a-dataclass)
+
         Args:
-            params_dict (Dict[str, Any]): Dictionary of parameters.
+            params_dict (Dict[str, Any]): Dictionary with keys that are in the dataclass.
 
         Returns:
-            (PushupPoseParams): Dataclass with the parameters initalized.
+            (PushupPoseParams): Dataclass with the parameters initalized from params_dict.
         """
+
         return cls(
             starting_elbow_angle=params_dict["starting_elbow_angle"],
             ending_elbow_angle=params_dict["ending_elbow_angle"],
@@ -385,7 +392,7 @@ class Node(AbstractNode):
                 - filename (str): The filename of the image/video.
 
         Note:
-            To check the shapes of bboxes, bbox_scores, keypoints, and keypoint_scores, please refer to [PeekingDuck API Documentation](https://peekingduck.readthedocs.io/en/stable/nodes/model.movenet.html#module-model.movenet).
+            To check the expected shapes of bboxes, bbox_scores, keypoints, and keypoint_scores, please refer to [PeekingDuck API Documentation](https://peekingduck.readthedocs.io/en/stable/nodes/model.movenet.html#module-model.movenet).
 
         Returns:
             outputs (dict): Dictionary with keys
