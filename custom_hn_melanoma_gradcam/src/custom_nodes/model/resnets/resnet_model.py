@@ -41,13 +41,24 @@ class ResnetModel:
 
         self.detector = detector.Detector(config, model_dir)
         self.input_shape = (config["input_size"], config["input_size"])
-        self.plot_gradcam = config["plot_gradcam"]
 
-    def show_gradcam(self, image: np.ndarray):
+    def show_gradcam(
+        self, image: np.ndarray, plot_gradcam: bool = False
+    ) -> np.ndarray:
+        """Shows the gradcam of the image.
+
+        Args:
+            image (np.ndarray): The input image frame.
+            plot_gradcam (bool, optional): Whether to plot the gradcam image. Defaults to False.
+
+        Returns:
+            gradcam_image (np.ndarray): The gradcam image.
+        """
         reshaped_original_image = cv2.resize(image, self.input_shape)
         gradcam_image = self.detector.show_resnet_gradcam(
-            image, reshaped_original_image, self.plot_gradcam
+            image, reshaped_original_image, plot_gradcam
         )
+
         return gradcam_image
 
     def predict(
@@ -91,4 +102,4 @@ if __name__ == "__main__":
     prediction_dict = resnet_det.predict(image)
     print(prediction_dict)
     # prediction = resnet_detector.predict_class_from_image(image)
-    _ = resnet_det.show_gradcam(image)
+    _ = resnet_det.show_gradcam(image, plot_gradcam=True)

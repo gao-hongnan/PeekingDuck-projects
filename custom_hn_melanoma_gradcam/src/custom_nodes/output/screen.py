@@ -62,7 +62,7 @@ class Node(AbstractNode):
 
         img = inputs["img"]
         gradcam_image = inputs["gradcam_image"]
-        source_name = inputs["filename"]
+        filename = inputs["filename"]
 
         # TODO: Find ways to concat two images with legends on cv2 imshow, this won't work if the images are not the same size.
         if self.window_size["do_resizing"]:
@@ -78,16 +78,13 @@ class Node(AbstractNode):
             )
         cv2.imshow(self.window_name, numpy_horizontal_concat)
 
-        if Path(source_name).suffix in VIDEO_EXTENSIONS:
+        if Path(filename).suffix in VIDEO_EXTENSIONS:
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 cv2.destroyWindow(self.window_name)
                 return {"pipeline_end": True}
         else:
-            if cv2.waitKey(1) & 0xFF == ord("q"):
+            if cv2.waitKey(1000) & 0xFF == ord("q"):  # wait 3 seconds
                 cv2.destroyWindow(self.window_name)
                 return {"pipeline_end": True}
-            # cv2.waitKey(0)
-            # cv2.destroyWindow(self.window_name)
-            # return {"pipeline_end": True}
 
         return {"pipeline_end": False}
