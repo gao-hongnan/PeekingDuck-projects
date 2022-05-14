@@ -20,23 +20,29 @@ by Hongnan Gao
 
 > PeekingDuck is an open-source, modular framework in Python, built for Computer Vision (CV) inference. The name "PeekingDuck" is a play on: "Peeking" in a nod to CV; and "Duck" in duck typing. - Extracted from [PeekingDuck](https://github.com/aimakerspace/PeekingDuck).
 
-We will use the PeekingDuck framework to create two use cases:
+This project uses the PeekingDuck framework to create two use cases:
 
-- **Exercise Counter**: we will create custom node(s) using PeekingDuck Framework to count the number of times a user has performed a push-up. The example can be extended to other exercises such as sit-ups, pull-ups and other general exercises by altering the **counting logic**.
-- **Melanoma Prediction with Grad-CAM**: we will create a custom node using PeekingDuck Framework to predict the presence of melanoma in an image and output the image with the Grad-CAM highlighted.
+- **Exercise Counter**: we will create custom node(s) using the PeekingDuck Framework to count the number of times a user has performed a push-up. The example can be extended to other exercises such as sit-ups, pull-ups and other general exercises by altering the **counting logic**.
+- **Melanoma Prediction with Grad-CAM**: we will create custom node(s) using the PeekingDuck Framework to predict the presence of melanoma in an image and output the image with Grad-CAM highlights.
 
 ## Installation
 
 Install this project using the following command:
 
 ```bash
-git clone # clone or download the repo to your working dir
-pip install -e . # install the project
+git clone                       # clone or download the repo to your working dir
+pip install -e .                # install the dependencies
+cd custom_hn_exercise_counter   # change to the project directory
+peekingduck run                 # run the project
 ```
+
+Note that this is only tested on Ubuntu-latest and Windows-latest with python version 3.8/3.9 through GitHub Actions.
 
 For a more detailed workflow, see the [Workflows](https://reighns92.github.io/PeekingDuck-projects/workflows/) section.
 
 ## Tutorials
+
+The tutorials below walkthrough how to use the PeekingDuck framework to create custom nodes for the two use cases.
 
 - [PeekingDuck Exercise Counter](https://reighns92.github.io/PeekingDuck-projects/exercise_counter/)
 - [PeekingDuck Grad-CAM](https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/)
@@ -53,10 +59,10 @@ The demo of the push-up counter is below. The original video is taken from [YouT
 
 The demo of Melanoma Grad-CAM demo is shown below:
 
-![](https://storage.googleapis.com/reighns/peekingduck/images/gradcam_demo.PNG)
+<img src="https://storage.googleapis.com/reighns/peekingduck/images/gradcam_demo.PNG" width="566" height="350">
 
 
-References
-----------------
+
+## References
 
 This project took references from the [Official PeekingDuck Tutorials](https://peekingduck.readthedocs.io/en/stable/).
