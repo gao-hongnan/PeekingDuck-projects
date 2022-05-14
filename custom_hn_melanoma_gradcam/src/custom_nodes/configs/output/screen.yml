@@ -4,8 +4,8 @@ output: ["pipeline_end"]
 window_name: "PeekingDuck"
 window_size: {
     do_resizing: True,
-    width: 224,
-    height: 224 
+    width: 1280,
+    height: 720 
 }
 window_loc: {
     x: 0,
