@@ -51,9 +51,14 @@ The tutorials below walkthrough how to use the PeekingDuck framework to create c
 
 ### Push-up Counter Demo
 
-The demo of the push-up counter is below. The original video is taken from [YouTube](https://www.youtube.com/watch?v=1D_HvjxB3Ps). The counter is displayed in yellow font on the top left corner of the video.
+Seeing push-up counter in action: person doing a total of $7$ push-ups - photo taken by me. The counter is displayed in yellow font on the top left corner of the video/gif.
+ 
+  ![Demo Count Push Ups](https://storage.googleapis.com/reighns/peekingduck/videos/seven_push_ups_by_jun_demo_gif.gif)
 
-![Demo Count Push Ups](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_counter_demo_less_than_5mb.gif)
+Below is a download link for the push-up counter demo. There are two demos, one is the one above, and the other is a video from [YouTube](https://www.youtube.com/watch?v=1D_HvjxB3Ps), uploaded by user Pedro Neto.
+
+- [Download Push Up Demo Zip](https://storage.googleapis.com/reighns/peekingduck/videos/push_ups_demo_zip.zip)
+
 
 ### Melanoma Grad-CAM Demo
 
