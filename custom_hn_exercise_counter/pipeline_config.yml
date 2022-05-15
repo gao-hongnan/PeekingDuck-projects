@@ -8,15 +8,12 @@ nodes:
     score_threshold: 0.1
     detect_ids: ["person"] # [0]
     num_classes: 1
-#- custom_nodes.dabble.debug_yolo
 - model.movenet:
     model_type: "singlepose_thunder"
-    resolution: {height: 256, width: 256} #TODO: check why the warning exists.
+    resolution: {height: 256, width: 256} # WARNING:  Config for node model.movenet does not have the key: height and width -> source code nested dict
     bbox_score_threshold: 0.05
     keypoint_score_threshold: 0.05
-#- custom_nodes.dabble.debug_posenet
 - dabble.fps
-#- custom_nodes.dabble.debug_exercise_counter
 - custom_nodes.dabble.exercise_counter:
     keypoint_threshold: 0.3
     exercise_name: "push_ups"
@@ -36,3 +33,5 @@ nodes:
     file_path: "./stores/artifacts/push_ups_output_movenet.csv"
     logging_interval: 0
 - output.screen
+# - output.media_writer:
+#     output_dir: "./stores/artifacts"
