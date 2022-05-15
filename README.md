@@ -64,8 +64,12 @@ Below is a download link for the push-up counter demo. There are two demos, one 
 
 The demo of Melanoma Grad-CAM demo is shown below:
 
-<img src="https://storage.googleapis.com/reighns/peekingduck/images/gradcam_demo.PNG" width="566" height="350">
-
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311_220515_171934.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262_220515_171935.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198_220515_171936.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550_220515_171938.jpg" width="200" />
+</p>
 
 
 ## References

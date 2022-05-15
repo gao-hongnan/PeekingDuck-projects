@@ -132,13 +132,12 @@ This script contains the `Detector` class which is used to predict melanoma.
 
 This script contains the `ResnetModel` class which is used to validate configuration, loads the `ResNet` model through `Detector`, and performs inference with the method `predict`.
 
-### model/melanoma_classifier.py
-
-This is the custom node.
-
 
 
 ### pipeline_config.yml
+
+Our `pipeline_config.yml` file to use the `input.visual` node to read in the images from the `melanoma_data/test` directory and output the prediction information on the image. Let's walkthrough the file:
+
 
 ```yaml title="pipeline_config.yml" linenums="1"
 nodes:
@@ -152,4 +151,41 @@ nodes:
 - draw.legend:
    show: ["filename", "pred_label", "pred_score"]
 - custom_nodes.output.screen
+- output.media_writer:
+   output_dir : "./stores/artifacts/"
 ```
+
+- `#!python [Lines 2-3]`: Load the images from the `melanoma_data/test` directory.
+- `#!python [Line 4]`: The custom node will initiate the trained model and perform inferences. Note it will output the predicted label, probability, and the heatmap of the input image.
+- `#!python [Lines 5-8]`: The `output.csv_writer` node will write the prediction information to a csv file. The `filename` will be the name of the image.
+- `#!python [Lines 9-10]`: The `draw.legend` node will show `filename`, `pred_label`, and `pred_score` on the screen.
+- `#!python [Line 11]`: The `custom_nodes.output.screen` node will show both the original image and the heatmap on the screen.
+- `#!python [Lines 12-13]`: The `output.media_writer` node will write the heatmap and the original image to the `./stores/artifacts/` directory.
+
+### Interpreting the CSV
+
+Our CSV file contains the following columns:
+
+```csv
+Time	    filename	        pred_label	pred_score
+17:12:46	ISIC_0074311.jpg	benign	    99.99732971
+17:12:47	ISIC_0076262.jpg	benign	    99.99479055
+17:12:49	ISIC_0098198.jpg	benign	    99.9946475
+17:12:50	ISIC_0100550.jpg	benign	    99.99884367
+```
+
+Something to clarify, our dataset is a binary classification problem and therefore two classes are predicted with their respective "confidence" scores. In our model, we used a `Softmax` as our final layer activation function, which will return each prediction as an array of `shape=(1, 2)`. More concretely:
+
+The first image `ISIC_0074311.jpg` has a predicted label of `benign` and a confidence score of `99.99732971`, but behind the scenes the `pred_score` is `[[9.999733e-01 2.673265e-05]]`. If we are less pedantic and treat this as a row vector, then the first element of the array is the probability of the image being a `benign` image and the second element is the probability of the image being a `malignant` image. We choose the maximum of the array as our final prediction.
+
+### Visualize Results
+
+We take a look at the images saved in our `./stores/artifacts/` directory.
+
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311_220515_171934.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262_220515_171935.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198_220515_171936.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550_220515_171938.jpg" width="200" />
+</p>
+
