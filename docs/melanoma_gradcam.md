@@ -189,3 +189,11 @@ We take a look at the images saved in our `./stores/artifacts/` directory.
   <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550_220515_171938.jpg" width="200" />
 </p>
 
+The below will be the ones with Grad-CAM:
+
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550.jpg" width="200" />
+</p>

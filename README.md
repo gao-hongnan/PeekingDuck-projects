@@ -64,11 +64,22 @@ Below is a download link for the push-up counter demo. There are two demos, one 
 
 The demo of Melanoma Grad-CAM demo is shown below:
 
+First, the original predicted images are displayed:
+
 <p float="left">
   <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311_220515_171934.jpg" width="200" />
   <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262_220515_171935.jpg" width="200" /> 
   <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198_220515_171936.jpg" width="200" />
   <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550_220515_171938.jpg" width="200" />
+</p>
+
+The below will be the ones with Grad-CAM:
+
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550.jpg" width="200" />
 </p>
 
 
