@@ -9,3 +9,5 @@ nodes:
 - draw.legend:
    show: ["filename", "pred_label", "pred_score"]
 - custom_nodes.output.screen
+- output.media_writer:
+   output_dir : "./stores/artifacts/"
