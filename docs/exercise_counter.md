@@ -338,7 +338,7 @@ Let us walk through the [mandatory inputs](exercise_counter.md#mandatory-inputs)
 
 
 !!! warning
-    Since both `MoveNet` and `Yolo` have the same `output` key `bboxes`, chaining `PoseNet/Movenet` after `Yolo` will cause the common output `bboxes` to be overwritten by the latter.
+    Since both `PoseNet/MoveNet` and `Yolo` have the same `output` key `bboxes`, chaining `PoseNet/Movenet` after `Yolo` will cause the common output `bboxes` to be overwritten by the latter.
 
 
 ##### Optional Configs
@@ -838,9 +838,10 @@ The `dabble.exercise_counter` implements our push-up counter.
             }
     ```
 
-Note that there are three helper functions to convert relative to absolute coordinates and to draw text on-screen. These are taken from [PeekingDuck's Tutorial on counting hand waves](https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#recipe-2-keypoints-count-hand-waves). 
+!!! note
+    Note that there are three helper functions `map_bbox_to_image_coords`, `map_keypoint_to_image_coords` and `draw_text` to convert relative to absolute coordinates and to draw text on-screen. These are taken from [PeekingDuck's Tutorial on counting hand waves](https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#recipe-2-keypoints-count-hand-waves). 
 
-With the [assumptions](exercise_counter.md#assumptions) above, our heuristic is:
+With the [assumptions](exercise_counter.md#assumptions) in the earlier section, our heuristic is:
 
 - Let the person's left shoulder, elbow and wrist be point $A$, $B$ and $C$ respectively. Then the angle $\angle{ABC}$ formed by the line vector $\vec{BA}$ and $\vec{BC}$ is the elbow angle.
 - Let us define that a user is in an **up** position if the angle $\angle{ABC}$ is more than a threshold `starting_elbow_angle` and in a **down** position if the angle is less than `ending_elbow_angle`. Our methods `is_up_pose()` and `is_down_pose()` are defined to check for these thresholds.
@@ -848,7 +849,7 @@ With the [assumptions](exercise_counter.md#assumptions) above, our heuristic is:
 - Ensure the person is in the starting position by checking if $\angle{ABC}$ is more than a threshold angle `starting_elbow_angle`. 
     - Keep track of a variable `expected_pose` that is inititally set to be **down**. Since the user starts off in the **up** position, he/she is **expected to go down**. Our method `is_down_pose()` will tell us once the user is in the **down** position. We increment `num_push_ups` by $0.5$ and set `expected_pose` to be **up** since the user should now go back **up**.
     - Similarly, `is_up_pose` will tell us once the user is **up** and we increment `num_push_ups` by $0.5$. A full cycle of push-up is done.
-    - In `#!python [Lines 270-273 & 277-280]`, it is necessary to check that the user's `is_down_pose` is `True` and `expected_pose` is **down** in order to increment `num_push_ups`. This is because the user can start with say angle $160$ and the next two frames are $158$ and $157$ both fulfills `is_down_pose` condition, if `expected_pose` is not checked, then these 2 consecutive frames will be counted as a push-up in `#!python [Line 274]`. The same logic applies to the `is_up_pose` condition.
+    - In `#!python [Lines 270-273 & 277-280]`, it is necessary to check that the user's `is_down_pose` is `True` and `expected_pose` is **down** in order to increment `num_push_ups`. This is because the user can start with say angle $160$ and the next two frames are $158$ and $157$, both fulfills the `is_down_pose` condition, if `expected_pose` is not checked, then these 2 consecutive frames will be counted as a push-up in `#!python [Line 274]`. The same logic applies to the `is_up_pose` condition.
 
 
 #### output/csv_writer.yml
@@ -901,3 +902,20 @@ Since the configurations' key names are not changed, we can directly overwrite t
 - If any of elbow, shoulder and wrist keypoints are `None`, then the corresponding elbow angle will be the same as the previous frame.
   
 
+## References
+
+This is my first encounter with Pose Estimation. Here are some references that I draw inspiration from.
+
+- **[Next-Generation Pose Detection with MoveNet and TensorFlow.js](https://blog.tensorflow.org/2021/05/next-generation-pose-detection-with-movenet-and-tensorflowjs.html)**
+- **[Multi-Person Pose Estimation with Mediapipe](https://shawntng.medium.com/multi-person-pose-estimation-with-mediapipe-52e6a60839dd)**
+- **[How I created the Workout Movement Counting App using Deep Learning and Optical Flow Algorithm](https://towardsdatascience.com/how-i-created-the-workout-movement-counting-app-using-deep-learning-and-optical-flow-89f9d2e087ac)**
+- **[Human Pose Classification with MoveNet and TensorFlow Lite](https://www.tensorflow.org/lite/tutorials/pose_classification)**
+- **[MoveNet: Ultra fast and accurate pose detection model](https://www.tensorflow.org/hub/tutorials/movenet)**
+- **[Deep learning approaches for workout repetition counting and validation](https://www.sciencedirect.com/science/article/pii/S016786552100324X#!)**
+- **[Push-up counter using Mediapipe python](https://www.youtube.com/watch?v=ZI2-Xl0J8S4)**
+- **[Pose Classification From MediaPipe](https://google.github.io/mediapipe/solutions/pose_classification.html)**
+- **[RepCounter using PoseNet](https://github.com/abishekvashok/Rep-Counter)**
+- **[Exercise Reps Counter || Pose Estimation](https://github.com/akshatkaush/exercise-count)**
+- **[Deep Learning Exercise Repetitions Counter](https://github.com/NetoPedro/Deep-Learning-Push-Up-Counter)**
+- **[Real-time Human Pose Estimation in the Browser with TensorFlow.js](https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5)**
+- **[Fitness Camera – Turn Your Phone's Camera Into a Fitness Tracker](https://miguelrochefort.com/blog/fitness-camera/)**
