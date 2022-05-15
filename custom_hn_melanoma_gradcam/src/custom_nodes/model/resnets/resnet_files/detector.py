@@ -29,11 +29,16 @@ class Detector:  # pylint: disable=too-few-public-methods, too-many-instance-att
         resnet50d (model.CustomNeuralNet): The ResNet model for performing inference.
     """
 
-    def __init__(self, config: Dict[str, Any], model_dir: Path) -> None:
+    def __init__(
+        self,
+        config: Dict[str, Any],
+        model_dir: Path,
+        class_label_map: Dict[int, str],
+    ) -> None:
         self.logger = logging.getLogger(__name__)
         self.config = config
         self.model_dir = model_dir
-        self.class_label_map = self.config["class_label_map"]
+        self.class_label_map = class_label_map
         self.device = torch.device(
             "cuda" if torch.cuda.is_available() else "cpu"
         )

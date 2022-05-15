@@ -1,7 +1,7 @@
 import logging
 
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, Union
 
 
 import numpy as np
@@ -17,8 +17,25 @@ from custom_hn_melanoma_gradcam.src.custom_nodes.model.resnets.resnet_files impo
 
 
 class ResnetModel:
+    """Validates configuration, loads ResNet model, and performs inference.
+
+    Configuration options are validated to ensure they have valid types and
+    values. Model weights files are downloaded if not found in the location
+    indicated by the `weights_dir` configuration option.
+
+    Attributes:
+        input_shape (tuple): The image's shape.
+        class_label_map (Dict[str, int]): Mapping of class names to integer.
+        detector (Detector): ResNet detector instance to predict images.
+    """
+
+    # class_label_map: Dict[str, int]
+
     def __init__(self, config: Dict[str, Any]) -> None:
         self.logger = logging.getLogger(__name__)
+
+        if config["input_size"] <= 0:
+            raise ValueError("input image size must be more than 0!")
 
         # replace the original finder to a more hardcoded config
         weights_dir = Path(config["weights_parent_dir"])
@@ -36,10 +53,13 @@ class ResnetModel:
             self.logger.info(f"Weights downloaded to {weights_dir}.")
 
         with open(model_dir / config["weights"]["classes_file"]) as infile:
-            # self.class_names change to self.class_label_map
-            self.class_label_map = yaml.safe_load(infile)
+            # actually inside our config file.
+            self.class_label_map = yaml.safe_load(infile)["class_label_map"]
+            assert self.class_label_map == config["class_label_map"]
 
-        self.detector = detector.Detector(config, model_dir)
+        self.detector = detector.Detector(
+            config, model_dir, self.class_label_map
+        )
         self.input_shape = (config["input_size"], config["input_size"])
 
     def show_gradcam(
@@ -63,18 +83,16 @@ class ResnetModel:
 
     def predict(
         self, image: np.ndarray
-    ) -> Tuple[List[np.ndarray], List[str], List[float]]:
+    ) -> Union[Dict[str, str], Dict[str, float]]:
         """Predicts bboxes from image.
 
         Args:
             image (np.ndarray): Input image frame.
 
         Returns:
-            (Tuple[List[np.ndarray], List[str], List[float]]): Returned tuple
-                contains:
-                - A list of detection bboxes
-                - A list of human-friendly detection class names
-                - A list of detection scores
+            Union[Dict[str, str], Dict[str, float]]:
+                - pred_label (str): The predicted class label.
+                - pred_score (float): The predicted class score.
 
         Raises:
             TypeError: The provided `image` is not a numpy array.
