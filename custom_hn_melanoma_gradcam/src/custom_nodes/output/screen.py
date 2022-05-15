@@ -78,6 +78,9 @@ class Node(AbstractNode):
             )
         cv2.imshow(self.window_name, numpy_horizontal_concat)
 
+        # save_path = "./stores/artifacts/" + filename
+        # cv2.imwrite(save_path, numpy_horizontal_concat)
+
         if Path(filename).suffix in VIDEO_EXTENSIONS:
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 cv2.destroyWindow(self.window_name)
