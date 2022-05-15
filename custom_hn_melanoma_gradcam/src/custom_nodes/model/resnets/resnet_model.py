@@ -1,7 +1,7 @@
 import logging
 
 from pathlib import Path
-from typing import Any, Dict, Union
+from typing import Any, Dict, Union, Tuple
 
 
 import numpy as np
@@ -15,7 +15,7 @@ from custom_hn_melanoma_gradcam.src.custom_nodes.model.resnets.resnet_files impo
     downloader,
 )
 
-
+# pylint: disable=too-many-function-args
 class ResnetModel:
     """Validates configuration, loads ResNet model, and performs inference.
 
@@ -24,12 +24,15 @@ class ResnetModel:
     indicated by the `weights_dir` configuration option.
 
     Attributes:
+        config (Dict[str, Any]): The config from the YAML file.
         input_shape (tuple): The image's shape.
-        class_label_map (Dict[str, int]): Mapping of class names to integer.
-        detector (Detector): ResNet detector instance to predict images.
+        class_label_map (Dict[int, str]): Mapping of class names to integer.
+        detector (detector.Detector): ResNet detector instance to predict images.
     """
 
-    # class_label_map: Dict[str, int]
+    class_label_map: Dict[int, str]
+    detector: detector.Detector
+    input_shape: Tuple[int, int]
 
     def __init__(self, config: Dict[str, Any]) -> None:
         self.logger = logging.getLogger(__name__)

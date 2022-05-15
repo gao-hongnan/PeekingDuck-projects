@@ -5,8 +5,6 @@ Casting classification model.
 from typing import Any, Dict
 
 import cv2
-import numpy as np
-
 
 from peekingduck.pipeline.nodes.node import AbstractNode
 from custom_hn_melanoma_gradcam.src.custom_nodes.model.resnets import (
@@ -15,9 +13,7 @@ from custom_hn_melanoma_gradcam.src.custom_nodes.model.resnets import (
 
 # pylint: disable=too-many-function-args
 class Node(AbstractNode):
-    """Initializes and uses a CNN to predict if an image frame shows a normal
-    or defective casting.
-    """
+    """Initializes and uses a ResNet to predict if an image frame is a melanoma or not."""
 
     def __init__(self, config: Dict[str, Any] = None, **kwargs: Any) -> None:
         super().__init__(config, node_path=__name__, **kwargs)
@@ -29,14 +25,13 @@ class Node(AbstractNode):
         self.input_shape = (self.input_size, self.input_size)
 
     def run(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
-        """Reads the image input and returns the predicted class label and
-        confidence score.
+        """Reads the image input and returns the predicted class label and probability.
 
         Args:
               inputs (dict): Dictionary with key "img".
 
         Returns:
-              outputs (dict): Dictionary with keys "pred_label" and "pred_score".
+              outputs (dict): Dictionary with keys "pred_label", "pred_score" and "gradcam_image".
         """
 
         img = cv2.cvtColor(inputs["img"], cv2.COLOR_BGR2RGB)
