@@ -12,9 +12,9 @@ by Hongnan Gao
 Let us create our main directory for the project:
 
 ```bash title="creating main directory" linenums="1"
-mkdir pkd_exercise_counter
-cd pkd_exercise_counter
-code .                      # (1)
+$ mkdir pkd_exercise_counter
+$ cd pkd_exercise_counter
+$ code .                      # (1)
 ```
 
 1.  Open the project directory in Visual Studio Code. To change appropriately if using different IDE.
@@ -27,21 +27,24 @@ Set up a virtual environment in your IDE.
     If you are using Linux or Mac, then you may need to install the virtual environment manager. For windows, python comes with a virtual environment manager `venv` installed.
 
     ```bash title="install venv" linenums="1"
-    sudo apt install python3.8 python3.8-venv python3-venv  # For Ubuntu
-    pip3 install virtualenv                                 # For Mac
+    $ sudo apt install python3.8 python3.8-venv python3-venv  # For Ubuntu
+    $ pip3 install virtualenv                                 # For Mac
     ```
 
 You can activate the virtual environment (assuming Windows) as follows:
 
 ```bash title="virtual environment windows" linenums="1"
-python -m venv venv_pkd_exercise_counter              # (1)
-.\venv_pkd_exercise_counter\Scripts\activate          # (2)
-python -m pip install --upgrade pip setuptools wheel  # (3)
+$ python -m venv venv_pkd_exercise_counter                      # (1)
+$ .\venv_pkd_exercise_counter\Scripts\activate                  # (2)
+(venv) $ python -m pip install --upgrade pip setuptools wheel   # (3)
 ```
 
 1.  Create virtual environment.
 2.  Activate virtual environment.
-3.  Upgrade pip
+3.  Upgrade pip.
+
+!!! note
+    Although the virtual environment name is `venv_pkd_exercise_counter`, it is too long and I will use `venv` for future references.
 
 
 You should see the following directory structure:
@@ -57,9 +60,9 @@ pkd_exercise_counter/
     We note that `echo > "filename"` command is used to create a file in Windows. One can use `touch` in other OS such as macOS or even `code` if you are using Visual Studio Code.
 
 ```bash title="creating requirements" linenums="1"
-echo > setup.py 
-echo > requirements.txt 
-pip install -e .
+(venv) $ echo > setup.py 
+(venv) $ echo > requirements.txt 
+(venv) $ pip install -e .
 ```
 
 - `#!bash [Line 1-2]`: [`setup.py`](https://stackoverflow.com/questions/60145069/what-is-the-purpose-of-setup-py) file informs you about the module or package-dependencies you are about to install has been packaged and distributed with Distutils, which is the standard for distributing Python Modules. You can skip `setup.py` if you are just using `requirements.txt` to install dependencies.
@@ -68,7 +71,7 @@ pip install -e .
 After which we quickly run a verification to see if PeekingDuck is installed correctly.
 
 ```bash title="peekingduck verification" linenums="1"
-peekingduck --verify_install
+(venv) $ peekingduck --verify_install
 ```
 
 !!! info
@@ -91,17 +94,23 @@ Git is a version control system that is used to track changes to files. It is in
     The commands below may differ depending on personal style and preferences. (i.e. ssh or https)
 
 ```bash title="git" linenums="1"
-echo > README.md 
-echo > .gitignore 
-git init
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"                               # important to set the email linked to the git account
-git add .
-git commit -a                                                                 # write commit message
-git remote add origin "your-repo-http"                                        # add remote origin
-git remote set-url origin https://[token]@github.com/[username]/[repository]  # set the remote origin
-git push origin master -u                                                     # push to remote origin
+(venv) $ echo > README.md 
+(venv) $ echo > .gitignore 
+(venv) $ git init
+(venv) $ git config --global user.name "Your Name"
+(venv) $ git config --global user.email "your@email.com"                               # (1) 
+(venv) $ git add .
+(venv) $ git commit -a                                                                 # (2)
+(venv) $ git remote add origin "your-repo-http"                                        # (3)
+(venv) $ git remote set-url origin https://[token]@github.com/[username]/[repository]  # (4)
+(venv) $ git push origin master -u                                                     # (5)
 ```
+
+1.  important to set the email linked to the git account.
+2.  write commit message.
+3.  add remote origin.
+4.  set the remote origin.
+5.  push to remote origin.
 
 ## Styling and Formatting
 
@@ -114,8 +123,8 @@ We will be using a very popular blend of style and formatting conventions that m
 We also have `pyproject.toml` and `.flake8` to configure our formatter and linter.
 
 ```bash title="create pyproject.toml and .flake8" linenums="1"
-echo > pyproject.toml
-echo > .flake8
+(venv) $ echo > pyproject.toml
+(venv) $ echo > .flake8
 ```
 
 For example, the configuration for `black` below tells us that our maximum line length should be $79$ characters. We also want to exclude certain file extensions and in particular the **virtual environment** folder we created earlier. 
@@ -174,7 +183,7 @@ We will be using [Mkdocs](https://www.mkdocs.org/) to generate our markdown docu
 
 3. We can specify the following configurations in `mkdocs.yml`:
 
-    ??? example "Show/Hide mkdocs.yml"
+    ???+ example "Show/Hide mkdocs.yml"
         ```yml title="mkdocs.yml" linenums="1"
         site_name: Hongnan G. PeekingDuck Exercise Counter
         site_url: ""
@@ -258,8 +267,6 @@ We also can create docstrings as API reference using [Mkdocstrings](https://mkdo
     ```md title="api/exercise_counter_api.md" linenums="1"
     ::: custom_hn_exercise_counter.src.custom_nodes.dabble.exercise_counter # package path.
     ```
-
-
 
 ## Tests
 

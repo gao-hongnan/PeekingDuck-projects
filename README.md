@@ -27,13 +27,13 @@ This project uses the PeekingDuck framework to create two use cases:
 
 ## Installation
 
-Install this project using the following command:
+Install the Exercise Counter using the following command:
 
 ```bash
-git clone                       # clone or download the repo to your working dir
-pip install -e .                # install the dependencies
-cd custom_hn_exercise_counter   # change to the project directory
-peekingduck run                 # run the project
+$ git clone                       # clone or download the repo to your working dir
+$ pip install -e .                # install the dependencies
+$ cd custom_hn_exercise_counter   # change to the project directory
+$ peekingduck run                 # run the project
 ```
 
 Note that this is only tested on Ubuntu-latest and Windows-latest with python version 3.8/3.9 through GitHub Actions.

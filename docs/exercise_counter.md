@@ -1008,8 +1008,6 @@ Since the configurations' key names are not changed, we can directly overwrite t
 !!! info
     A small recap, this node is used to write the results to a CSV file and is chained after the `dabble.exercise_counter` node. We pass the `output` dict of the `dabble.exercise_counter` as inputs to (`stats_to_track`).
 
-
-
 ##### Interpretation of CSV outputs
 
 The snippet below shows the CSV file contents.
