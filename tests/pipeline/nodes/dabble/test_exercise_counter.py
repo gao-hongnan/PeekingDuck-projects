@@ -1,9 +1,11 @@
+import warnings
+
+import numpy as np
 import pytest
 
 from custom_hn_exercise_counter.src.custom_nodes.dabble.exercise_counter import (
     Node,
 )
-import numpy as np
 
 # pylint: disable=missing-function-docstring
 
@@ -31,7 +33,10 @@ class TestExerciseCounter:
         b = np.asarray([])
         c = np.asarray([])
 
-        angle = calculate_angle.calculate_angle_using_dot_prod(a, b, c)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            angle = calculate_angle.calculate_angle_using_dot_prod(a, b, c)
+
         assert np.isnan(angle)
 
     def test_angle_test_same_vectors(self, calculate_angle):
@@ -39,7 +44,10 @@ class TestExerciseCounter:
         b = np.asarray([6, 0])
         c = np.asarray([10, 0])
 
-        angle = calculate_angle.calculate_angle_using_dot_prod(a, b, c)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            angle = calculate_angle.calculate_angle_using_dot_prod(a, b, c)
+
         assert np.isnan(angle)
 
     def test_angle_is_zero(self, calculate_angle):
@@ -89,9 +97,3 @@ class TestExerciseCounter:
 
         angle = calculate_angle.calculate_angle_using_dot_prod(a, b, c)
         assert angle == 90
-
-    def test_if_no_person_detected_in_video(self):
-        """should return an empty dictionary if no person is detected in the video
-        or return dict with expected keys but empty string in value.
-        """
-        pass
