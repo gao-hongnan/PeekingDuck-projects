@@ -1,0 +1,2319 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://reighns92.github.io/PeekingDuck-projects/exercise_counter/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Exercise Counter - Hongnan G. PeekingDuck Projects</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#push-up-counter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Hongnan G. PeekingDuck Projects" class="md-header__button md-logo" aria-label="Hongnan G. PeekingDuck Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hongnan G. PeekingDuck Projects
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exercise Counter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Hongnan G. PeekingDuck Projects" class="md-nav__button md-logo" aria-label="Hongnan G. PeekingDuck Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hongnan G. PeekingDuck Projects
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          PeekingDuck
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PeekingDuck" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          PeekingDuck
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exercise Counter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Exercise Counter
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#push-up-counter" class="md-nav__link">
+    Push-Up Counter
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-Up Counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    Assumptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-node-general-workflow" class="md-nav__link">
+    Custom Node General Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Node General Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-initialize-peekingduck-template" class="md-nav__link">
+    Step 1. Initialize PeekingDuck Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-use-pipeline-recipe-to-create-custom-nodes" class="md-nav__link">
+    Step 2. Use Pipeline Recipe to Create Custom Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deep-dive-into-the-custom-nodes" class="md-nav__link">
+    Step 3. Deep Dive into the Custom Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3. Deep Dive into the Custom Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom_nodesinputvisual" class="md-nav__link">
+    custom_nodes.input.visual
+  </a>
+  
+    <nav class="md-nav" aria-label="custom_nodes.input.visual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputvisualyml" class="md-nav__link">
+    input/visual.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputvisualpy" class="md-nav__link">
+    input/visual.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom_nodesdabbleexercise_counter" class="md-nav__link">
+    custom_nodes.dabble.exercise_counter
+  </a>
+  
+    <nav class="md-nav" aria-label="custom_nodes.dabble.exercise_counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dabbleexercise_counteryml" class="md-nav__link">
+    dabble/exercise_counter.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="dabble/exercise_counter.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mandatory-default-configuration-items" class="md-nav__link">
+    Mandatory Default Configuration Items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-configs" class="md-nav__link">
+    Optional Configs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dabbleexercise_counterpy" class="md-nav__link">
+    dabble/exercise_counter.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputcsv_writeryml" class="md-nav__link">
+    output/csv_writer.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="output/csv_writer.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretation-of-csv-outputs" class="md-nav__link">
+    Interpretation of CSV outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../melanoma_gradcam/" class="md-nav__link">
+        Melanoma Prediction with Grad-CAM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/exercise_counter_api/" class="md-nav__link">
+        Exercise Counter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#push-up-counter" class="md-nav__link">
+    Push-Up Counter
+  </a>
+  
+    <nav class="md-nav" aria-label="Push-Up Counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    Assumptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-node-general-workflow" class="md-nav__link">
+    Custom Node General Workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Node General Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-initialize-peekingduck-template" class="md-nav__link">
+    Step 1. Initialize PeekingDuck Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-use-pipeline-recipe-to-create-custom-nodes" class="md-nav__link">
+    Step 2. Use Pipeline Recipe to Create Custom Nodes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-deep-dive-into-the-custom-nodes" class="md-nav__link">
+    Step 3. Deep Dive into the Custom Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3. Deep Dive into the Custom Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom_nodesinputvisual" class="md-nav__link">
+    custom_nodes.input.visual
+  </a>
+  
+    <nav class="md-nav" aria-label="custom_nodes.input.visual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputvisualyml" class="md-nav__link">
+    input/visual.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputvisualpy" class="md-nav__link">
+    input/visual.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom_nodesdabbleexercise_counter" class="md-nav__link">
+    custom_nodes.dabble.exercise_counter
+  </a>
+  
+    <nav class="md-nav" aria-label="custom_nodes.dabble.exercise_counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dabbleexercise_counteryml" class="md-nav__link">
+    dabble/exercise_counter.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="dabble/exercise_counter.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mandatory-default-configuration-items" class="md-nav__link">
+    Mandatory Default Configuration Items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-configs" class="md-nav__link">
+    Optional Configs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dabbleexercise_counterpy" class="md-nav__link">
+    dabble/exercise_counter.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputcsv_writeryml" class="md-nav__link">
+    output/csv_writer.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="output/csv_writer.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretation-of-csv-outputs" class="md-nav__link">
+    Interpretation of CSV outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<div align="center">
+<h1>PeekingDuck Exercise Counter</a></h1>
+by Hongnan Gao
+1st May, 2022
+<br>
+</div>
+
+<h2 id="push-up-counter">Push-Up Counter</h2>
+<p>The aim of this project is to build an exercise counter that can be used to detect push-ups, and more generic exercises in future iterations. Some content below are referenced from <a href="https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#recipe-2-keypoints-count-hand-waves">PeekingDuck's Tutorial</a>.</p>
+<p>The main model is <strong>MoveNet</strong>, which outputs seventeen keypoints for the person corresponding to the different body parts as documented here<sup id="fnref:movenet_keypoints_id"><a class="footnote-ref" href="#fn:movenet_keypoints_id">1</a></sup>. Each keypoint is a pair of <span class="arithmatex">\((x, y)\)</span> coordinates, where <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are real numbers ranging from <span class="arithmatex">\(0.0\)</span> to <span class="arithmatex">\(1.0\)</span> (using relative coordinates<sup id="fnref:coordinate_systems"><a class="footnote-ref" href="#fn:coordinate_systems">2</a></sup>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a <strong>Minimum Viable Product (MVP)</strong> and uses simple logic to detect push-ups. Consequently, there are a few somewhat rigid assumptions that will be made in the code.</p>
+</div>
+<p>We will detail the logic in the following sections.</p>
+<h3 id="assumptions">Assumptions</h3>
+<p>This project makes a few assumptions about the input data for
+simplicity of implementation:</p>
+<ol>
+<li>
+<p>The user's <strong>left body parts</strong> are visible through the webcam/video
+    and in particular, the <strong>left elbow, wrist and shoulder</strong> are
+    crucial for our push-up counter.</p>
+<p>We can improve on this rigid requirement in the future by checking
+both the <strong>left</strong> and <strong>right</strong> body parts, and take the <strong>side</strong>
+with <strong>higher keypoints confidence</strong>.</p>
+</li>
+<li>
+<p>There should be only <span class="arithmatex">\(1\)</span> person in the video. As we are using
+    <strong>MoveNet's</strong> <code>singlepose_thunder</code> model, we need to impose the
+    restriction that there should be only <span class="arithmatex">\(1\)</span> person in the video to
+    avoid performance issues.</p>
+<p>We can improve on this rigid requirement in the future by
+incorporating multi-person logic. The <code>multipose_lightning</code> can
+detect up to <span class="arithmatex">\(6\)</span> people in the video.</p>
+</li>
+<li>
+<p>If user leaves the video and come back, we assume that the user is
+   the same person and continue counting.</p>
+</li>
+</ol>
+<h2 id="custom-node-general-workflow">Custom Node General Workflow</h2>
+<h3 id="step-1-initialize-peekingduck-template">Step 1. Initialize PeekingDuck Template</h3>
+<p>After setting up from the <a href="../workflows/">Workflows</a> section, we can start using the PeekingDuck interface.</p>
+<p>We initialize a new PeekingDuck project using the following commands:</p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Session</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Initializing PeekingDuck</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ mkdir custom_hn_exercise_counter
+$ <span class="nb">cd</span> custom_hn_exercise_counter
+$ peekingduck init
+</code></pre></div></td></tr></table></div>
+</div>
+<ul>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">1</span><span class="p">]</span></code>: Create a new directory named <code>custom_hn_exercise_counter</code> for the project.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">2</span><span class="p">]</span></code>: Change to the newly created directory.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">3</span><span class="p">]</span></code>: Initialize the PeekingDuck project in the current directory with default file/folder below.</li>
+</ul>
+<p>Upon initialization of the project, PeekingDuck creates the following files in your
+new project directory:</p>
+<ul>
+<li><code>pipeline_config.yml</code> - Contains the pipeline<sup id="fnref:pipeline_config"><a class="footnote-ref" href="#fn:pipeline_config">3</a></sup> configuration and;</li>
+<li><code>src/</code> - Folder for custom nodes. </li>
+</ul>
+<p>The <code>custom_hn_exercise_counter</code> directory currently looks like this:</p>
+<div class="highlight"><span class="filename">Directory Tree of custom_hn_exercise_counter</span><pre><span></span><code>custom_hn_exercise_counter/
+├── pipeline_config.yml
+└── src/
+    └── custom_nodes/
+        └──configs/
+</code></pre></div>
+<hr />
+<h3 id="step-2-use-pipeline-recipe-to-create-custom-nodes">Step 2. Use Pipeline Recipe to Create Custom Nodes</h3>
+<p>PeekingDuck provides several node types out of the box, for example a
+MoveNet node to detect human poses within an image. To implement
+additional functionality not provided by built-in nodes, we can create
+<a href="https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html">custom nodes</a>
+with our own logic written in Python.</p>
+<p>For our project, we need to create two custom nodes. First, we will
+create a <code>custom_nodes.input.visual</code> node. Although PeekingDuck
+provides a visual input node, a small issue prevents filenames from URL
+visual sources from registering properly. Registering the filename
+properly is important, because we use it in later stages of our
+pipeline, including writing output data to CSV. To fix this issue, we
+implement this custom node.</p>
+<p>Additionally, we implement a <code>custom_nodes.dabble.exercise_counter</code>
+node. This node will take the keypoints from the MoveNet model and
+count the number of push-ups performed by the person in the input
+video.</p>
+<ol>
+<li>
+<p>To create these custom nodes, we first edit our <code>pipeline_config.yml</code>:</p>
+<details class="example" open="open">
+<summary>Show/Hide content for pipeline_config.yml</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pipeline_config.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">nodes</span><span class="p">:</span><span class="w"></span>
+<span class="hll"><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">custom_nodes.input.visual</span><span class="p">:</span><span class="w"></span>
+</span><span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/reighns/peekingduck/videos/push_ups.mp4</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model.yolo</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v4tiny&quot;</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">iou_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">detect_ids</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;person&quot;</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># [0]</span><span class="w"></span>
+<span class="w">    </span><span class="nt">num_classes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="c1">#- custom_nodes.dabble.debug_yolo</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model.movenet</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;singlepose_thunder&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">resolution</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">height</span><span class="p">:</span><span class="w"> </span><span class="nv">256</span><span class="p p-Indicator">,</span><span class="nt"> width</span><span class="p">:</span><span class="w"> </span><span class="nv">256</span><span class="p p-Indicator">}</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">bbox_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05</span><span class="w"></span>
+<span class="w">    </span><span class="nt">keypoint_score_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dabble.fps</span><span class="w"></span>
+<span class="hll"><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">custom_nodes.dabble.exercise_counter</span><span class="p">:</span><span class="w"></span>
+</span><span class="w">    </span><span class="nt">keypoint_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3</span><span class="w"></span>
+<span class="w">    </span><span class="nt">exercise_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;push_ups&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">push_up_pose_params</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">        starting_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">155</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        ending_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">90</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">}</span><span class="w">   </span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">draw.poses</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">draw.legend</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">show</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;fps&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">output.csv_writer</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">stats_to_track</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;keypoints&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bboxes&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bbox_labels&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;num_push_ups&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;frame_count&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;expected_pose&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_angle&quot;</span><span class="p p-Indicator">,</span><span class="s">&quot;shoulder_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;wrist_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">    </span><span class="nt">file_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./stores/artifacts/push_ups_output_movenet.csv&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">logging_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">output.screen</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Adding our custom nodes (highlighted) is as simple as adding
+entries for them to the <code>pipeline_config.yml</code> file.</p>
+<p>Additionally, we add configuration for some nodes. For example, I
+specify that I want to use <code>v4tiny</code> model for the <code>model.yolo</code>
+node with a <span class="arithmatex">\(0.1\)</span> threshold for both iou and bounding box
+confidence score. These configurations will then be passed to the
+<code>config</code> parameter of the <code>model.yolo</code> node.</p>
+</li>
+<li>
+<p>We then create the custom nodes using the <a href="https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#pipeline-recipe">Pipeline Recipe method</a><sup id="fnref:creating_nodes"><a class="footnote-ref" href="#fn:creating_nodes">4</a></sup> with the following command: </p>
+<div class="admonition note">
+<p class="admonition-title">Terminal Session</p>
+<div class="highlight"><span class="filename">Creating Custom Nodes</span><pre><span></span><code>$ peekingduck create-node --config_path pipeline_config.yml
+</code></pre></div>
+</div>
+<p>This will create all the nodes listed in the <code>pipeline_config.yml</code> file. If one decides to add more custom nodes, we can simply add them to the <code>pipeline_config.yml</code> file and run the command again.</p>
+<p>The updated <code>custom_hn_exercise_counter</code> directory currently looks like this:</p>
+<div class="highlight"><span class="filename">Directory Tree of custom_hn_exercise_counter</span><pre><span></span><code>custom_hn_exercise_counter/
+├── pipeline_config.yml
+└── src/
+    └── custom_nodes/
+        ├── configs/
+        |    ├── dabble/
+        |    |   └── exercise_counter.yml
+        |    └── input/
+        |        └── visual.yml
+        ├── dabble/
+        |    └── exercise_counter.py
+        └── input/
+            └── visual.py  
+</code></pre></div>
+<p><code>custom_hn_exercise_counter</code> now contains <strong>five files</strong> that we need to modify in order to implement our custom push-up counter.</p>
+<ul>
+<li><code>pipeline_config.yml</code></li>
+<li><code>src/custom_nodes/dabble/exercise_counter.py</code></li>
+<li><code>src/custom_nodes/configs/dabble/exercise_counter.yml</code></li>
+<li><code>src/custom_nodes/input/visual.py</code></li>
+<li><code>src/custom_nodes/configs/input/visual.py</code></li>
+</ul>
+<p>We will go into details in the next <a href="./#step-3-deep-dive-into-the-custom-nodes">section</a>.</p>
+</li>
+<li>
+<p>We will also create an additional folder <code>stores</code> in the same level as <code>src</code>. For now, we will add a folder <code>artifacts</code> in the <code>stores</code> folder, this is where we will store the output files and model artifacts.</p>
+<div class="highlight"><span class="filename">Directory Tree of custom_hn_exercise_counter</span><pre><span></span><code>custom_hn_exercise_counter/
+├── src/
+├── stores/
+│   └── artifacts/
+└── pipeline_config.yml
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h3 id="step-3-deep-dive-into-the-custom-nodes">Step 3. Deep Dive into the Custom Nodes</h3>
+<p>After <a href="./#step-2-use-pipeline-recipe-to-create-custom-nodes">Step 2</a>, three folders <code>config</code>, <code>dabble</code> and <code>input</code> will be populated in <code>src</code>. The <code>config</code> folder holds the <em>configurations</em> for the custom nodes while the <code>dabble</code> and <code>input</code> folders holds the <em>code</em> for the custom nodes. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Something worth noting is that other <strong>default nodes</strong> that are in <strong>PeekingDuck</strong> will not be included in the <code>config</code> folder. For example, the <code>model.yolo</code> node is not included in the <code>config</code> folder because it is a <strong>default node</strong>. This is because the configurations for the default nodes are already included in the <code>pipeline_config.yml</code> file and will be <strong>instantiated</strong> when <code>peekingduck run</code> is called.</p>
+</div>
+<h4 id="custom_nodesinputvisual"><strong>custom_nodes.input.visual</strong></h4>
+<h5 id="inputvisualyml"><strong>input/visual.yml</strong></h5>
+<p>When defining a custom node, we must provide a default
+configuration. We can use the <a href="https://github.com/aimakerspace/PeekingDuck/blob/dev/peekingduck/configs/input/visual.yml">default
+configuration</a>
+from the built-in <code>input.visual</code> node:</p>
+<details class="example" open="open">
+<summary>Show/Hide content for input.visual.yml</summary>
+<div class="highlight"><span class="filename">input.visual.yml</span><pre><span></span><code><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;none&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;img&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pipeline_end&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;saved_video_fps&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+
+<span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">video.mp4</span><span class="w"></span>
+<span class="nt">frames_log_freq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
+<span class="nt">mirror_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+<span class="nt">resize</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">            do_resizing</span><span class="p">:</span><span class="w"> </span><span class="nv">False</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">            width</span><span class="p">:</span><span class="w"> </span><span class="nv">1280</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">            height</span><span class="p">:</span><span class="w"> </span><span class="nv">720</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="nt">saved_video_fps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://storage.googleapis.com/peekingduck/videos/wave.mp4</span><span class="w"></span>
+<span class="nt">threading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+<span class="nt">buffering</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+</code></pre></div>
+</details>
+<h5 id="inputvisualpy"><strong>input/visual.py</strong></h5>
+<p>In <strong>PeekingDuck</strong> version <code>1.2.0</code>, if you define <code>source</code> to be a
+<strong>URL</strong>, the <code>filename</code> is not overwritten by the <code>source</code> filename
+and maintains the default <code>video.mp4</code>. There is a <a href="https://github.com/aimakerspace/PeekingDuck/pull/646">pull
+request</a> to fix
+a similar issue where the filename was not set if the source is a single
+image. In our <code>custom_nodes.input.visual</code> node, we apply a similar fix
+for the URL case. This change will help us save the <code>filename</code> parameter
+in the output CSV file later.</p>
+<p>Standing on the shoulder of giants, I quickly modified a few lines to suit my purpose as I want to save the <code>filename</code> parameter in my output csv file later. 
+Therefore, the code inside this file is mostly the same except for the highlighted lines below.</p>
+<p>To implement this custom node, copy the
+<a href="https://github.com/aimakerspace/PeekingDuck/blob/dev/peekingduck/pipeline/nodes/input/visual.py"><code>peekingduck/pipeline/nodes/input/visual.py</code></a>
+file from the PeekingDuck <code>dev</code> branch to
+<code>custom_hn_exercise_counter/src/custom_nodes/input/visual.py</code> and
+update the highlighted lines:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">input.visual.py: _determine_source_type()</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">_determine_source_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine which one of the following types is self.source:</span>
+<span class="sd">        - directory of files</span>
+<span class="sd">        - file</span>
+<span class="sd">        - url : http / rtsp</span>
+<span class="sd">        - webcam</span>
+<span class="sd">    If input source is a directory of files,</span>
+<span class="sd">    then node will have specific methods to handle it.</span>
+<span class="sd">    Otherwise opencv can deal with all non-directory sources.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="hll">    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+</span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_source_type</span> <span class="o">=</span> <span class="n">SourceType</span><span class="o">.</span><span class="n">WEBCAM</span>
+    <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="s2">&quot;rtsp://&quot;</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_source_type</span> <span class="o">=</span> <span class="n">SourceType</span><span class="o">.</span><span class="n">URL</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
+</span>    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># either directory or file</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Path &#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39; does not exist&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_source_type</span> <span class="o">=</span> <span class="n">SourceType</span><span class="o">.</span><span class="n">DIRECTORY</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_source_type</span> <span class="o">=</span> <span class="n">SourceType</span><span class="o">.</span><span class="n">FILE</span>
+<span class="hll">            <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Explanation</p>
+<p>In the <code>run</code> method of <code>input.visual.py</code>, we note that the <code>output</code> dict is called by
+<code>outputs = self._get_next_frame()</code> and <code>self._file_name</code> is therefore
+crucial to output the correct filename of the source. Since <code>source</code>
+is set as <code>self.source</code>, we use <code>pathlib.Path</code> to convert it to a
+<code>pathlib.Path</code> object and call the
+<a href="https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.name"><code>name</code></a>
+property to get the filename.</p>
+<details class="example" open="open">
+<summary>Show/Hide content for _get_next_frame()</summary>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">_get_next_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Read next frame from current input file/source&quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">file_end</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;img&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span>
+        <span class="s2">&quot;pipeline_end&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;saved_video_fps&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fps</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_video_fps</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">videocap</span><span class="p">:</span>
+        <span class="n">success</span><span class="p">,</span> <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">videocap</span><span class="o">.</span><span class="n">read_frame</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_end</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_resize</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">resize_image</span><span class="p">(</span>
+                    <span class="n">img</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;img&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">img</span>
+            <span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;pipeline_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;No video frames available for processing.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">outputs</span>
+</code></pre></div>
+</details>
+</div>
+<h4 id="custom_nodesdabbleexercise_counter"><strong>custom_nodes.dabble.exercise_counter</strong></h4>
+<h5 id="dabbleexercise_counteryml"><strong>dabble/exercise_counter.yml</strong></h5>
+<p>Running <code>peekingduck create-node</code> command creates a default configuration for the <code>custom_nodes.dabble.exercise_counter</code> node:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Default config for dabble/exercise_counter.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;bboxes&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bbox_labels&quot;</span><span class="p p-Indicator">]</span><span class="w">    </span><span class="c1"># (1)</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;obj_attrs&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;custom_key&quot;</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># (2)</span><span class="w"></span>
+
+<span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w">                      </span><span class="c1"># (3)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Mandatory configs. The default configurations receive bounding
+    boxes and their respective labels as input. Replace with other
+    data types as required. List of built-in data types for
+    PeekingDuck can be found in
+    <a href="https://peekingduck.readthedocs.io/en/stable/glossary.html">here</a>.</li>
+<li>Output <code>obj_attrs</code> for visualization with <code>draw.tag</code> node and
+    <code>custom_key</code> for use with other custom nodes. Replace as required.</li>
+<li>Optional configs depending on node. We will go through that later.</li>
+</ol>
+<p>We need to edit the file according to our own needs. Since we are
+chaining <strong>Yolo</strong> and <strong>MoveNet</strong>, this node should therefore take in
+<code>img</code>, <code>bboxes</code>, <code>bbox_scores</code>, <code>keypoints</code>, and <code>keypoint_scores</code> as
+inputs from the pipeline and outputs a dictionary with keys such as
+<code>frame_count</code>, <code>num_push_ups</code>, <code>body_direction</code>, <code>elbow_angle</code>,
+<code>shoulder_keypoint</code>, <code>elbow_keypoint</code>, and <code>wrist_keypoint</code>.</p>
+<p>We also want to define some optional configuration items for the
+<code>dabble.exercise_counter</code> node. For example, users may specify a
+custom exercise name in the <code>exercise_name</code> configuration item. For now,
+the only supported value is <code>push_ups</code>.</p>
+<p>Consequently, the newly updated <code>dabble.exercise_counter.yml</code> file
+should contain the following:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dabble.exercise_counter.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;img&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bboxes&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bbox_scores&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;keypoints&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;keypoint_scores&quot;</span><span class="p p-Indicator">]</span><span class="w">         </span><span class="c1"># (1)</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;frame_count&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;num_push_ups&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;expected_pose&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_angle&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;shoulder_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;wrist_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">]</span><span class="w">    </span><span class="c1"># (2)</span><span class="w"></span>
+
+<span class="c1"># Optional configs</span><span class="w"></span>
+<span class="nt">keypoint_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3</span><span class="w">                                                         </span><span class="c1"># (3)</span><span class="w"></span>
+<span class="nt">exercise_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;push_ups&quot;</span><span class="w">                                                       </span><span class="c1"># (4)     </span><span class="w"></span>
+<span class="nt">push_up_pose_params</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">    starting_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">155</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    ending_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">90</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="p p-Indicator">}</span><span class="w">                                                                               </span><span class="c1"># (5)                              </span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The <code>inputs</code> propagated from previous nodes.<ul>
+<li><code>img</code>: Input image</li>
+<li><code>bboxes</code>: Bounding boxes</li>
+<li><code>bbox_scores</code>: Bounding box scores</li>
+<li><code>keypoints</code>: Keypoints</li>
+<li><code>keypoint_scores</code>: Keypoint scores</li>
+</ul>
+</li>
+<li>The <code>outputs</code> of the current node.<ul>
+<li><code>frame_count</code>: Incremented every time a new frame is processed.</li>
+<li><code>num_push_ups</code>: The number of push-ups detected in the current frame.</li>
+<li><code>body_direction</code>: The direction of the body in the current frame.</li>
+<li><code>elbow_angle</code>: The angle between the wrist, elbow and the
+  shoulder in the current frame.</li>
+<li><code>shoulder_keypoint</code>: The keypoint of the shoulder in the current frame.</li>
+<li><code>elbow_keypoint</code>: The keypoint of the elbow in the current frame.</li>
+<li><code>wrist_keypoint</code>: The keypoint of the wrist in the current frame.</li>
+</ul>
+</li>
+<li>This is an optional configuration parameter that will be
+    initialized if defined. Here I defined a <code>keypoint_threshold</code>
+    parameter.</li>
+<li>This is an optional configuration parameter that will be
+    initialized if defined. Here I defined a <code>exercise_name</code>
+    parameter.</li>
+<li>This is an optional configuration parameter that will be
+    initialized if defined. Here I defined a <code>push_up_pose_params</code>
+    parameter.</li>
+</ol>
+<p>Let us walk through the <a href="./#mandatory-inputs">mandatory
+inputs</a> and <a href="./#optional-configs">optional
+configs</a> of
+<code>dabble.exercise_counter.yml</code> in the next two sections. One should
+also refer back by clicking the ➕ beside each line of code in the
+above file for annotations.</p>
+<h6 id="mandatory-default-configuration-items">Mandatory Default Configuration Items</h6>
+<p>All nodes must specify <code>input</code> and <code>output</code> items in their default
+configuration file. All items specified in the <code>input</code> array must be
+computed and returned by previous nodes in the pipeline. For the
+<code>dabble.exercise_counter</code> node, we rely on previous nodes to provide
+inputs for our exercise detection algorithm, such as the detected
+keypoints.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since both <code>PoseNet/MoveNet</code> and <code>Yolo</code> have the same <code>output</code> key
+<code>bboxes</code>, chaining <code>PoseNet/Movenet</code> after <code>Yolo</code> will cause the
+common output <code>bboxes</code> to be overwritten by the latter.</p>
+</div>
+<h6 id="optional-configs">Optional Configs</h6>
+<p>Recall the optional configs defined in <code>dabble.exercise_counter.yml</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">optional config</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Optional configs</span><span class="w"></span>
+<span class="nt">keypoint_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3</span><span class="w">                                                </span>
+<span class="nt">exercise_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;push_ups&quot;</span><span class="w"> </span>
+<span class="nt">push_up_pose_params</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">    starting_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">155</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    ending_elbow_angle</span><span class="p">:</span><span class="w"> </span><span class="nv">90</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="p p-Indicator">}</span><span class="w">                                                                                    </span>
+</code></pre></div></td></tr></table></div>
+<p>These configuration items will set as class instance <strong>attributes</strong> of the custom node <code>Node(AbstractNode)</code> upon initialization. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">abstract node class</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">AbstractNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is a template class of how to write a node for PeekingDuck.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config (:obj:`Dict[str, Any]` | :obj:`None`): Node configuration.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node_path</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For example, when you pass an additional parameter <code>exercise_name</code> in <code>exercise_counter.yml</code>, this parameter will be instantiated in the <code>dabble.exercise_counter</code> <code>Node</code> as an attribute <code>self.exercise_name</code>. </p>
+<p>A quick check in the source code <code>peekingduck.pipeline.nodes.node.py</code> shows that it will set all the keys defined in the <code>.yml</code> file.
+<div class="highlight"><pre><span></span><code><span class="c1"># sets class attributes</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</code></pre></div></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As an aside, the other optional argument passed is
+<code>keypoint_threshold</code> which is used to determine the threshold for the
+keypoints. Technically it behaves the same as the
+<code>keypoint_score_threshold</code> in <code>model.movenet</code>'s Configs.</p>
+</div>
+<h5 id="dabbleexercise_counterpy"><strong>dabble/exercise_counter.py</strong></h5>
+<p>The <code>dabble.exercise_counter</code> implements our push-up counter. </p>
+<figure>
+<p><img alt="Image title" src="https://storage.googleapis.com/reighns/peekingduck/images/pushup_fortune-vieyra-jD4MtXnsJ6w-unsplash_LI.jpg" width="600" />
+  </p>
+<figcaption>Fig 1: Push-up Image by Fortune Vieyra via Unsplash - Copyright-free</figcaption>
+</figure>
+<p>With the
+<a href="./#assumptions">assumptions</a> in the earlier section,
+our heuristic is:</p>
+<ol>
+<li>
+<p>As shown in Figure 1, let the person's left shoulder, elbow and
+    wrist be point (keypoints of <span class="arithmatex">\((x,y)\)</span> coordinates) <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(C\)</span> respectively. Then the angle
+    <span class="arithmatex">\(\angle{ABC}\)</span> formed by the line vector <span class="arithmatex">\(\vec{BA}\)</span> and <span class="arithmatex">\(\vec{BC}\)</span> is
+    the elbow angle.</p>
+<p>Define the following:</p>
+<ul>
+<li><span class="arithmatex">\(\angle{S}=155^{\circ}\)</span> to be the threshold for starting elbow angle;</li>
+<li><span class="arithmatex">\(\angle{E}=90^{\circ}\)</span> to be the threshold fpr ending elbow angle<sup id="fnref:s_configurable"><a class="footnote-ref" href="#fn:s_configurable">5</a></sup>;</li>
+<li><span class="arithmatex">\(N=0\)</span> as the number of push-ups;</li>
+<li><span class="arithmatex">\(H=\text{False}\)</span> as whether the person has started performing push-ups, and;</li>
+<li><span class="arithmatex">\(P\in\{\text{up}, \text{down}\}=\text{down}\)</span> as the expected pose.</li>
+</ul>
+<p><span class="arithmatex">\({\color{red} \text{We say that the person is in an up pose if} \angle{ABC} &gt;
+S, \text{and in a down pose if} \angle{ABC} \le E.}\)</span></p>
+</li>
+<li>
+<p>Once the person assumes an <span class="arithmatex">\(\text{up}\)</span> pose for the first time (i.e. getting ready for push up),
+    set <span class="arithmatex">\(H=\text{True}\)</span>.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(H=\text{True}\)</span>, and the person assumes a <span class="arithmatex">\(\text{down}\)</span> pose,
+    and <span class="arithmatex">\(P=\text{down}\)</span>, set <span class="arithmatex">\(N=N+0.5\)</span> and <span class="arithmatex">\(P=\text{up}\)</span>.</p>
+<p>Otherwise, if <span class="arithmatex">\(H=\text{True}\)</span> and the person assumes an <span class="arithmatex">\(\text{up}\)</span>
+pose, and <span class="arithmatex">\(P=\text{up}\)</span>, set <span class="arithmatex">\(N=N+0.5\)</span> and <span class="arithmatex">\(P=\text{down}\)</span>.</p>
+</li>
+</ol>
+<p>We detect the person performing a push-up as a cycle. A push-up starts
+when the person has an <span class="arithmatex">\(\text{up}\)</span> pose. When the person moves to a
+<span class="arithmatex">\(\text{down}\)</span> pose, they have completed half the cycle, so we
+increment <span class="arithmatex">\(N\)</span> by <span class="arithmatex">\(0.5\)</span>. When they return to an <span class="arithmatex">\(\text{up}\)</span> pose, they
+have completed the cycle, so <span class="arithmatex">\(N\)</span> is incremented by <span class="arithmatex">\(0.5\)</span> again, giving
+a total incremnt of <span class="arithmatex">\(1\)</span> per cycle.</p>
+<p>This code below implements the logic detailed previously.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that there are three helper functions <code>map_bbox_to_image_coords</code>, <code>map_keypoint_to_image_coords</code> and <code>draw_text</code> to convert relative to absolute coordinates and to draw text on-screen. These are taken from <a href="https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#recipe-2-keypoints-count-hand-waves">PeekingDuck's Tutorial on counting hand waves</a>. </p>
+</div>
+<details class="example">
+<summary>Show/Hide code for dabble/exercise_counter.py</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dabble/exercise_counter.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">GlobalParams</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Global parameters for the node.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        FONT (int): Font for the text.</span>
+<span class="sd">        WHITE (int): White color in BGR.</span>
+<span class="sd">        YELLOW (int): Yellow color in BGR.</span>
+<span class="sd">        KP_NAME_TO_INDEX (Dict[str, int]): PoseNet/MoveNet&#39;s skeletal keypoints name to index mapping.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">FONT</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span>
+    <span class="n">WHITE</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="n">YELLOW</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+    <span class="n">KP_NAME_TO_INDEX</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;nose&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;left_eye&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;right_eye&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;left_ear&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;right_ear&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">&quot;left_shoulder&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;right_shoulder&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="s2">&quot;left_elbow&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;right_elbow&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+            <span class="s2">&quot;left_wrist&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+            <span class="s2">&quot;right_wrist&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="s2">&quot;left_hip&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;right_hip&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+            <span class="s2">&quot;left_knee&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+            <span class="s2">&quot;right_knee&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+            <span class="s2">&quot;left_ankle&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="s2">&quot;right_ankle&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">PushupPoseParams</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Push up pose parameters.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        starting_elbow_angle (float): The threshold angle formed between the wrist, elbow and shoulder for starting (up) pose.</span>
+<span class="sd">        ending_elbow_angle (float): The threshold angle formed between the wrist, elbow and shoulder for ending (down) pose.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">starting_elbow_angle</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">ending_elbow_angle</span><span class="p">:</span> <span class="nb">float</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;PushupPoseParams&quot;</span><span class="p">],</span> <span class="n">params_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;PushupPoseParams&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Takes in a dictionary of parameters and returns a PushupPoseParams Dataclass.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            params_dict (Dict[str, Any]): Dictionary of parameters.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (PushupPoseParams): Dataclass with the parameters initalized.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">starting_elbow_angle</span><span class="o">=</span><span class="n">params_dict</span><span class="p">[</span><span class="s2">&quot;starting_elbow_angle&quot;</span><span class="p">],</span>
+            <span class="n">ending_elbow_angle</span><span class="o">=</span><span class="n">params_dict</span><span class="p">[</span><span class="s2">&quot;ending_elbow_angle&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">AbstractNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Custom node to display keypoints and count number of hand waves</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    config (:obj:`Dict[str, Any]` | :obj:`None`): Node configuration.</span>
+<span class="sd">    config.exercise_name (str): Name of the exercise. Default: &quot;pushups&quot;.</span>
+<span class="sd">    config.keypoint_threshold (float): Ignore keypoints below this threshold. Default: 0.3.</span>
+<span class="sd">    config.push_up_pose_params (:obj:`Dict[str, Any]`): Parameters for the push up pose. Default: {starting_elbow_angle: 155, ending_elbow_angle: 90}.</span>
+
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        self.frame_count (int): Track the number of frames processed.</span>
+<span class="sd">        self.expected_pose (str): The expected pose. Default: &quot;down&quot;.</span>
+<span class="sd">        self.num_push_ups (float): Cumulative number of push ups. Default: 0.</span>
+<span class="sd">        self.have_started_push_ups (bool): Whether or not the push ups have started. Default: False.</span>
+<span class="sd">        self.elbow_angle (float): Angle of the elbow. Default: None.</span>
+<span class="sd">        self.global_params_dataclass (GlobalParams): Global parameters for the node.</span>
+<span class="sd">        self.push_up_pose_params_dataclass (PushupPoseParams): Push up pose parameters.</span>
+<span class="sd">        self.interested_keypoints (List[str]): List of keypoints to track. Default: [&quot;left_elbow&quot;, &quot;left_shoulder&quot;, &quot;left_wrist&quot;].</span>
+<span class="sd">        self.left_elbow (float): Keypoints of the left elbow. Default: None.</span>
+<span class="sd">        self.left_shoulder (float): Keypoints of the left shoulder. Default: None.</span>
+<span class="sd">        self.left_wrist (float): Keypoints of the left wrist. Default: None.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node_path</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">exercise_name</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_threshold</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># ignore keypoints below this threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">push_up_pose_params</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialize Exercise Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">exercise_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_push_ups</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">have_started_push_ups</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elbow_angle</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span> <span class="o">=</span> <span class="n">GlobalParams</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">push_up_pose_params_dataclass</span> <span class="o">=</span> <span class="n">PushupPoseParams</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">push_up_pose_params</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">interested_keypoints</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;left_elbow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;left_shoulder&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;left_wrist&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="c1"># each element in the self.interested_keypoints list will now become an attribute initialized to None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_keypoints_to_none</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">reset_keypoints_to_none</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Reset all keypoints attributes to None after each frame.&quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">interested_keypoint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interested_keypoints</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interested_keypoint</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inc_num_push_ups</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Increments the number of push ups by 0.5 for every directional change.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            self.num_push_ups (float): Cumulative number of push ups.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_push_ups</span> <span class="o">+=</span> <span class="mf">0.5</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_push_ups</span>
+
+    <span class="k">def</span> <span class="nf">is_up_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elbow_angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Checks if the pose is an &quot;up&quot; pose by checking if the elbow angle is</span>
+<span class="sd">        more than the starting elbow angle threshold.</span>
+
+<span class="sd">        Elbow angle is defined by connecting the wrist to the elbow to the shoulder.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elbow_angle (float): The angle of the elbow.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the pose is a up pose, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">elbow_angle</span>
+            <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">push_up_pose_params_dataclass</span><span class="o">.</span><span class="n">starting_elbow_angle</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">is_down_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elbow_angle</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Checks if the pose is an &quot;down&quot; pose by checking if the elbow angle is</span>
+<span class="sd">        more than the ending elbow angle threshold.</span>
+
+<span class="sd">        Elbow angle is defined by connecting the wrist to the elbow to the shoulder.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            elbow_angle (float): The angle of the elbow.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the pose is a down pose, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">elbow_angle</span>
+            <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">push_up_pose_params_dataclass</span><span class="o">.</span><span class="n">ending_elbow_angle</span>
+        <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">is_bbox_or_keypoints_empty</span><span class="p">(</span>
+        <span class="n">bboxes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">keypoint_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Checks if the bounding box or keypoints are empty.</span>
+
+<span class="sd">        If any of them are empty, then we won&#39;t perform any further processing and go to next frame.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            bboxes (np.ndarray): The bounding boxes.</span>
+<span class="sd">            keypoints (np.ndarray): The keypoints.</span>
+<span class="sd">            keypoint_scores (np.ndarray): The keypoint scores.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the bounding box or keypoints are empty, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">bboxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">keypoints</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">keypoint_scores</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="p">)</span>
+
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="k">def</span> <span class="nf">count_push_ups</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">img_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+        <span class="n">the_keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">the_keypoint_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Counts the number of push ups.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            img (np.ndarray): The image in each frame.</span>
+<span class="sd">            img_size (Tuple[int, int]): The width and height of the image in each frame.</span>
+<span class="sd">            the_keypoints (np.ndarray): The keypoints predicted in each frame.</span>
+<span class="sd">            the_keypoint_scores (np.ndarray): The keypoint scores predicted in each frame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">interested_keypoints_names_to_index</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span><span class="o">.</span><span class="n">KP_NAME_TO_INDEX</span><span class="p">[</span>
+                <span class="n">interested_keypoint</span>
+            <span class="p">]:</span> <span class="n">interested_keypoint</span>
+            <span class="k">for</span> <span class="n">interested_keypoint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interested_keypoints</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_keypoints_to_none</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">keypoint_idx</span><span class="p">,</span> <span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">keypoint_score</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+            <span class="nb">zip</span><span class="p">(</span><span class="n">the_keypoints</span><span class="p">,</span> <span class="n">the_keypoint_scores</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">if</span> <span class="n">keypoint_score</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_threshold</span><span class="p">:</span>
+
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">map_keypoint_to_image_coords</span><span class="p">(</span>
+                    <span class="n">keypoints</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">img_size</span>
+                <span class="p">)</span>
+                <span class="n">x_y_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+                <span class="k">if</span> <span class="n">keypoint_idx</span> <span class="ow">in</span> <span class="n">interested_keypoints_names_to_index</span><span class="p">:</span>
+                    <span class="n">keypoint_name</span> <span class="o">=</span> <span class="n">interested_keypoints_names_to_index</span><span class="p">[</span>
+                        <span class="n">keypoint_idx</span>
+                    <span class="p">]</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoint_name</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+                    <span class="n">the_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span><span class="o">.</span><span class="n">YELLOW</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">the_color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span><span class="o">.</span><span class="n">WHITE</span>
+
+                <span class="n">draw_text</span><span class="p">(</span>
+                    <span class="n">img</span><span class="p">,</span>
+                    <span class="n">x_y_str</span><span class="p">,</span>
+                    <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span>
+                    <span class="n">color</span><span class="o">=</span><span class="n">the_color</span><span class="p">,</span>
+                    <span class="n">fontFace</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
+                    <span class="n">fontScale</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+                    <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="c1"># all keypoints must be non-none</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_elbow</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_shoulder</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_wrist</span><span class="p">:</span>
+
+            <span class="n">left_elbow_angle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_angle_using_dot_prod</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">left_shoulder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_elbow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_wrist</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">elbow_angle</span> <span class="o">=</span> <span class="n">left_elbow_angle</span>
+
+            <span class="c1"># Check to ensure right form before starting the program</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_up_pose</span><span class="p">(</span><span class="n">left_elbow_angle</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">have_started_push_ups</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="c1"># Check for full range of motion for the pushup</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">have_started_push_ups</span><span class="p">:</span>
+                <span class="c1"># the two if-statements are mutually exclusive: won&#39;t happen at the same time.</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_down_pose</span><span class="p">(</span><span class="n">left_elbow_angle</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span> <span class="o">==</span> <span class="s2">&quot;down&quot;</span>
+                <span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">inc_num_push_ups</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span>
+
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">is_up_pose</span><span class="p">(</span><span class="n">left_elbow_angle</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span>
+                <span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">inc_num_push_ups</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span>
+
+            <span class="n">pushup_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;#push_ups = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">num_push_ups</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">draw_text</span><span class="p">(</span>
+                <span class="n">img</span><span class="p">,</span>
+                <span class="n">pushup_str</span><span class="p">,</span>
+                <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+                <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span><span class="o">.</span><span class="n">YELLOW</span><span class="p">,</span>
+                <span class="n">fontFace</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
+                <span class="n">fontScale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># pylint: disable=trailing-whitespace</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">calculate_angle_using_dot_prod</span><span class="p">(</span>
+        <span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">b</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">c</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">return_as_degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Takes in three points and calculates the angle between them using dot product.</span>
+<span class="sd">        Let B be the common point of two vectors BA and BC, then angle ABC is the angle between vectors BA and BC.</span>
+
+<span class="sd">        This function calculates the angle ABC using the dot product formula:</span>
+
+<span class="sd">        $$</span>
+<span class="sd">        \begin{align*}</span>
+<span class="sd">        BA &amp;= a - b \\</span>
+<span class="sd">        BC &amp;= c - b \\</span>
+<span class="sd">        \cos(angle(ABC)) &amp;= \dfrac{(BA \cdot BC)}{(|BA||BC|)}</span>
+<span class="sd">        \end{align*}</span>
+<span class="sd">        $$</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            a (np.ndarray): Point a corresponding to A.</span>
+<span class="sd">            b (np.ndarray): Point b corresponding to B.</span>
+<span class="sd">            c (np.ndarray): Point c corresponding to C.</span>
+<span class="sd">            return_as_degrees (bool): Returns angle in degrees if True else radians. Default: True.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            angle (float): Angle between vectors BA and BC in radians or degrees.</span>
+
+<span class="sd">        Shape:</span>
+<span class="sd">            - Input:</span>
+<span class="sd">                - a (np.ndarray): (2, )</span>
+<span class="sd">                - b (np.ndarray): (2, )</span>
+<span class="sd">                - c (np.ndarray): (2, )</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">            &gt;&gt;&gt; a = (6, 0)</span>
+<span class="sd">            &gt;&gt;&gt; b = (0, 0)</span>
+<span class="sd">            &gt;&gt;&gt; c = (6, 6)</span>
+<span class="sd">            &gt;&gt;&gt; calculate_angle_using_dot_prod(a,b,c)</span>
+<span class="sd">            45.0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># turn the points into numpy arrays</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">ba</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+        <span class="n">bc</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">b</span>
+
+        <span class="n">cosine_angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">bc</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">ba</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">bc</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># arccos range is [0, pi]</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">cosine_angle</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">return_as_degrees</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">angle</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>  <span class="c1"># type: ignore</span>
+        <span class="sd">&quot;&quot;&quot;This node draws keypoints and counts the number of push ups.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (dict): Dictionary with keys</span>
+<span class="sd">                - img (np.ndarray): The image in each frame.</span>
+<span class="sd">                - bboxes (np.ndarray): The bounding boxes predicted in each frame. Note this belongs to MoveNet.</span>
+<span class="sd">                - bbox_scores (np.ndarray): The bounding box scores predicted in each frame. Note this belongs to Yolo.</span>
+<span class="sd">                - keypoints (np.ndarray): The keypoints predicted in each frame.</span>
+<span class="sd">                - keypoint_scores (np.ndarray): The keypoint scores predicted in each frame.</span>
+<span class="sd">                - filename (str): The filename of the image/video.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            To check the shapes of bboxes, bbox_scores, keypoints, and keypoint_scores, please refer to [PeekingDuck API Documentation](https://peekingduck.readthedocs.io/en/stable/nodes/model.movenet.html#module-model.movenet).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            outputs (dict): Dictionary with keys</span>
+<span class="sd">                - filename: The filename of the image/video.</span>
+<span class="sd">                - expected_pose: The expected pose of the image/video.</span>
+<span class="sd">                - num_push_ups: The number of cumulative push ups.</span>
+<span class="sd">                - frame_count: The number of frames processed.</span>
+<span class="sd">                - elbow_angle: The angle between the wrist, elbow and shoulder.</span>
+<span class="sd">                - elbow_keypoint: The keypoint coordinates of the elbow.</span>
+<span class="sd">                - shoulder_keypoint: The keypoint coordinates of the shoulder.</span>
+<span class="sd">                - wrist_keypoint: The keypoint coordinates of the wrist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># get required inputs from pipeline</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;img&quot;</span><span class="p">]</span>
+        <span class="n">bboxes</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;bboxes&quot;</span><span class="p">]</span>
+        <span class="n">bbox_scores</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;bbox_scores&quot;</span><span class="p">]</span>
+        <span class="n">keypoints</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;keypoints&quot;</span><span class="p">]</span>
+        <span class="n">keypoint_scores</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;keypoint_scores&quot;</span><span class="p">]</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;filename&quot;</span><span class="p">]</span>
+
+        <span class="c1"># image width, height</span>
+        <span class="n">img_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># frame count should not be in the if-clause</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_bbox_or_keypoints_empty</span><span class="p">(</span>
+            <span class="n">bboxes</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">keypoint_scores</span>
+        <span class="p">):</span>
+            <span class="c1"># assume each frame has only one person;</span>
+            <span class="c1"># note this bbox is from the posenet/movenet and not from yolo.</span>
+            <span class="n">the_bbox</span> <span class="o">=</span> <span class="n">bboxes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># bbox_scores are from yolo and not posenet/movenet.</span>
+            <span class="n">the_bbox_score</span> <span class="o">=</span> <span class="n">bbox_scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bbox_scores</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+            <span class="n">x1</span><span class="p">,</span> <span class="n">_y1</span><span class="p">,</span> <span class="n">_x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">map_bbox_to_image_coords</span><span class="p">(</span><span class="n">the_bbox</span><span class="p">,</span> <span class="n">img_size</span><span class="p">)</span>
+            <span class="n">score_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;BBox </span><span class="si">{</span><span class="n">the_bbox_score</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="c1"># get bounding box confidence score and draw it at the left-bottom</span>
+            <span class="c1"># (x1, y2) corner of the bounding box (offset by 30 pixels)</span>
+            <span class="n">draw_text</span><span class="p">(</span>
+                <span class="n">img</span><span class="p">,</span>
+                <span class="n">score_str</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">-</span> <span class="mi">30</span><span class="p">),</span>
+                <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">global_params_dataclass</span><span class="o">.</span><span class="n">WHITE</span><span class="p">,</span>
+                <span class="n">fontFace</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
+                <span class="n">fontScale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                <span class="n">thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># assume each frame has only one person;</span>
+            <span class="n">the_keypoints</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">the_keypoint_scores</span> <span class="o">=</span> <span class="n">keypoint_scores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># count the number of push ups</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">count_push_ups</span><span class="p">(</span>
+                <span class="n">img</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">the_keypoints</span><span class="p">,</span> <span class="n">the_keypoint_scores</span>
+            <span class="p">)</span>
+
+        <span class="c1"># careful not to indent this return statement;</span>
+        <span class="c1"># if the if-clause is false, then no dict will be returned and will crash the pipeline</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
+            <span class="s2">&quot;expected_pose&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_pose</span><span class="p">,</span>
+            <span class="s2">&quot;num_push_ups&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_push_ups</span><span class="p">,</span>
+            <span class="s2">&quot;frame_count&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span><span class="p">,</span>
+            <span class="s2">&quot;elbow_angle&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">elbow_angle</span><span class="p">,</span>
+            <span class="s2">&quot;elbow_keypoint&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_elbow</span><span class="p">,</span>
+            <span class="s2">&quot;shoulder_keypoint&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_shoulder</span><span class="p">,</span>
+            <span class="s2">&quot;wrist_keypoint&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">left_wrist</span><span class="p">,</span>
+        <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h4 id="outputcsv_writeryml">output/csv_writer.yml</h4>
+<p>This is a default node and we will make use of the <a href="https://peekingduck.readthedocs.io/en/stable/nodes/output.csv_writer.html#module-output.csv_writer"><code>output.csv_writer</code></a> node to write the results from <code>exercise_counter</code> to a CSV file. </p>
+<p>A quick check at the default settings from <code>peekingduck.configs.output.csv_writer.yml</code> yields:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">default output.csv_writer.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;all&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;none&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+
+<span class="nt">stats_to_track</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;keypoints&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bboxes&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bbox_labels&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">file_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PeekingDuck/data/stats.csv&quot;</span><span class="w"></span>
+<span class="nt">logging_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># in terms of seconds between each log</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>We are fine with <code>input</code> and <code>output</code> as they are but need to modify the configurations from <code class="highlight"><span class="p">[</span><span class="n">lines</span> <span class="mi">4</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span></code>.</p>
+<p>Since the configurations' key names are not changed, we can directly overwrite them in <code>pipeline_config.yml</code> as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pipeline_config.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">output.csv_writer</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">stats_to_track</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;keypoints&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bboxes&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;bbox_labels&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">                     </span><span class="s">&quot;num_push_ups&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;frame_count&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span>
+<span class="w">                     </span><span class="s">&quot;body_direction&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_angle&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">                     </span><span class="s">&quot;shoulder_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;elbow_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">                     </span><span class="s">&quot;wrist_keypoint&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">]</span><span class="w">              </span><span class="c1"># (1)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">file_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./stores/artifacts/push_ups_output_movenet.csv&quot;</span><span class="w"> </span><span class="c1"># (2)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">logging_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                                         </span><span class="c1"># (3)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>The main aim is to keep track of keypoints information per frame.</li>
+<li>The <code>file_path</code> is set to <code>./store/artifacts/push_ups_output_movenet.csv</code>. This is where the CSV file will be written to.</li>
+<li>The <code>logging_interval</code> is set to 0. This means that the CSV file will be written to every frame. The code block from <code>peekingduck.pipeline.nodes.output.utils.csvlogger</code> shows how the <code>logging_interval</code> logic is implemented.
+    <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">curr_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_write</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logging_interval</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">last_write</span> <span class="o">=</span> <span class="n">curr_time</span>
+</code></pre></div></li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A small recap, this node is used to write the results to a CSV file and is chained after the <code>dabble.exercise_counter</code> node. We pass the <code>output</code> dict of the <code>dabble.exercise_counter</code> as inputs to (<code>stats_to_track</code>).</p>
+</div>
+<h5 id="interpretation-of-csv-outputs">Interpretation of CSV outputs</h5>
+<p>The snippet below shows the CSV file contents.</p>
+<figure>
+<p><img alt="Image title" src="https://storage.googleapis.com/reighns/peekingduck/images/exercise_counter_csv_snippet.PNG" width="600" />
+  </p>
+<figcaption>Fig 2: Push-up Counter CSV</figcaption>
+</figure>
+<ul>
+<li>Keypoints of elbow, shoulder, wrist as well as elbow angles are recorded every frame, if some of them are not detected by the model, it will be <code>None</code> and recorded as an <strong>empty string</strong> in the CSV file.</li>
+<li>If any of elbow, shoulder and wrist keypoints are <code>None</code>, then the corresponding elbow angle will be the same as the previous frame.</li>
+</ul>
+<h2 id="references">References</h2>
+<p>This is my first encounter with Pose Estimation. Here are some references that I draw inspiration from.</p>
+<ul>
+<li><strong><a href="https://blog.tensorflow.org/2021/05/next-generation-pose-detection-with-movenet-and-tensorflowjs.html">Next-Generation Pose Detection with MoveNet and TensorFlow.js</a></strong></li>
+<li><strong><a href="https://shawntng.medium.com/multi-person-pose-estimation-with-mediapipe-52e6a60839dd">Multi-Person Pose Estimation with Mediapipe</a></strong></li>
+<li><strong><a href="https://towardsdatascience.com/how-i-created-the-workout-movement-counting-app-using-deep-learning-and-optical-flow-89f9d2e087ac">How I created the Workout Movement Counting App using Deep Learning and Optical Flow Algorithm</a></strong></li>
+<li><strong><a href="https://www.tensorflow.org/lite/tutorials/pose_classification">Human Pose Classification with MoveNet and TensorFlow Lite</a></strong></li>
+<li><strong><a href="https://www.tensorflow.org/hub/tutorials/movenet">MoveNet: Ultra fast and accurate pose detection model</a></strong></li>
+<li><strong><a href="https://www.sciencedirect.com/science/article/pii/S016786552100324X#!">Deep learning approaches for workout repetition counting and validation</a></strong></li>
+<li><strong><a href="https://www.youtube.com/watch?v=ZI2-Xl0J8S4">Push-up counter using Mediapipe python</a></strong></li>
+<li><strong><a href="https://google.github.io/mediapipe/solutions/pose_classification.html">Pose Classification From MediaPipe</a></strong></li>
+<li><strong><a href="https://github.com/abishekvashok/Rep-Counter">RepCounter using PoseNet</a></strong></li>
+<li><strong><a href="https://github.com/akshatkaush/exercise-count">Exercise Reps Counter || Pose Estimation</a></strong></li>
+<li><strong><a href="https://github.com/NetoPedro/Deep-Learning-Push-Up-Counter">Deep Learning Exercise Repetitions Counter</a></strong></li>
+<li><strong><a href="https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5">Real-time Human Pose Estimation in the Browser with TensorFlow.js</a></strong></li>
+<li><strong><a href="https://miguelrochefort.com/blog/fitness-camera/">Fitness Camera – Turn Your Phone's Camera Into a Fitness Tracker</a></strong></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:movenet_keypoints_id">
+<p><a href="https://peekingduck.readthedocs.io/en/stable/resources/01b_pose_estimation.html#whole-body-keypoint-ids">Keypoint IDs</a>&#160;<a class="footnote-backref" href="#fnref:movenet_keypoints_id" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:coordinate_systems">
+<p><a href="https://peekingduck.readthedocs.io/en/stable/tutorials/01_hello_cv.html#tutorial-coordinate-systems">Coordinate Systems</a>&#160;<a class="footnote-backref" href="#fnref:coordinate_systems" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:pipeline_config">
+<p>You can read more about pipeline config <a href="https://peekingduck.readthedocs.io/en/stable/tutorials/01_hello_cv.html">in PeekingDuck's Documentation</a>.&#160;<a class="footnote-backref" href="#fnref:pipeline_config" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:creating_nodes">
+<p>There are various ways to create custom nodes. See more from the <a href="https://peekingduck.readthedocs.io/en/stable/tutorials/03_custom_nodes.html#">PeekingDuck documentation</a>.&#160;<a class="footnote-backref" href="#fnref:creating_nodes" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:s_configurable">
+<p>The values for <span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(E\)</span> are configurable, but <span class="arithmatex">\(155^{\circ}\)</span> and <span class="arithmatex">\(90^{\circ}\)</span> are good defaults.&#160;<a class="footnote-backref" href="#fnref:s_configurable" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../workflows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Workflows" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Workflows
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../melanoma_gradcam/" class="md-footer__link md-footer__link--next" aria-label="Next: Melanoma Prediction with Grad-CAM" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Melanoma Prediction with Grad-CAM
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="../javascript/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

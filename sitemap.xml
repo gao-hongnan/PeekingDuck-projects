@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/exercise_counter/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/pkd/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/workflows/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://reighns92.github.io/PeekingDuck-projects/api/exercise_counter_api/</loc>
+         <lastmod>2022-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>

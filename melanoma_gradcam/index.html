@@ -1,0 +1,865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://reighns92.github.io/PeekingDuck-projects/melanoma_gradcam/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>Melanoma Prediction with Grad-CAM - Hongnan G. PeekingDuck Projects</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-custom-nodes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Hongnan G. PeekingDuck Projects" class="md-header__button md-logo" aria-label="Hongnan G. PeekingDuck Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hongnan G. PeekingDuck Projects
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Melanoma Prediction with Grad-CAM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Hongnan G. PeekingDuck Projects" class="md-nav__button md-logo" aria-label="Hongnan G. PeekingDuck Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hongnan G. PeekingDuck Projects
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          PeekingDuck
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PeekingDuck" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          PeekingDuck
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_counter/" class="md-nav__link">
+        Exercise Counter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Melanoma Prediction with Grad-CAM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Melanoma Prediction with Grad-CAM
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-custom-nodes" class="md-nav__link">
+    The Custom Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="The Custom Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configsmodelmelanoma_classifieryml" class="md-nav__link">
+    configs/model/melanoma_classifier.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelmelanoma_classifierpy" class="md-nav__link">
+    model/melanoma_classifier.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesdownloaderpy" class="md-nav__link">
+    model/resnets/resnet_files/downloader.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesmodelpy" class="md-nav__link">
+    model/resnets/resnet_files/model.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesdetectorpy" class="md-nav__link">
+    model/resnets/resnet_files/detector.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_modelpy" class="md-nav__link">
+    model/resnets/resnet_model.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline_configyml" class="md-nav__link">
+    pipeline_config.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-the-csv" class="md-nav__link">
+    Interpreting the CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualize-results" class="md-nav__link">
+    Visualize Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/exercise_counter_api/" class="md-nav__link">
+        Exercise Counter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-custom-nodes" class="md-nav__link">
+    The Custom Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="The Custom Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configsmodelmelanoma_classifieryml" class="md-nav__link">
+    configs/model/melanoma_classifier.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelmelanoma_classifierpy" class="md-nav__link">
+    model/melanoma_classifier.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesdownloaderpy" class="md-nav__link">
+    model/resnets/resnet_files/downloader.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesmodelpy" class="md-nav__link">
+    model/resnets/resnet_files/model.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_filesdetectorpy" class="md-nav__link">
+    model/resnets/resnet_files/detector.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelresnetsresnet_modelpy" class="md-nav__link">
+    model/resnets/resnet_model.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline_configyml" class="md-nav__link">
+    pipeline_config.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-the-csv" class="md-nav__link">
+    Interpreting the CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualize-results" class="md-nav__link">
+    Visualize Results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Melanoma Prediction with Grad-CAM</h1>
+
+<h2 id="the-custom-nodes">The Custom Nodes</h2>
+<p>This section shows how to use a custom trained model to perform inference with integration with the PeekingDuck framework. It assumes that you are already familiar with the process of creating custom nodes, covered in my other <a href="../exercise_counter/">tutorial</a>.</p>
+<h3 id="configsmodelmelanoma_classifieryml">configs/model/melanoma_classifier.yml</h3>
+<p>We first see what content is inside the config file.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">melanoma_classifier.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;img&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;pred_label&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pred_score&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;gradcam_image&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+
+<span class="nt">weights_parent_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytorch_models</span><span class="w"></span>
+<span class="nt">weights</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">    model_subdir</span><span class="p">:</span><span class="w"> </span><span class="nv">resnet50d</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    blob_file</span><span class="p">:</span><span class="w"> </span><span class="nv">resnet50d.zip</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    classes_file</span><span class="p">:</span><span class="w"> </span><span class="nv">melanoma_class_mapping.yml</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    model_file</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">        resnet34d</span><span class="p">:</span><span class="w"> </span><span class="nv">resnet34d.pt</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        resnet50d</span><span class="p">:</span><span class="w"> </span><span class="nv">resnet50d.pt</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">}</span><span class="w"></span>
+<span class="p p-Indicator">}</span><span class="w"></span>
+
+<span class="nt">model_params</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">        model_name</span><span class="p">:</span><span class="w"> </span><span class="nv">resnet50d</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        out_features</span><span class="p">:</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        in_channels</span><span class="p">:</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        pretrained</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">        use_meta</span><span class="p">:</span><span class="w"> </span><span class="nv">false</span><span class="w"></span>
+<span class="p p-Indicator">}</span><span class="w"></span>
+
+<span class="nt">num_classes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+
+<span class="nt">class_label_map</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"></span>
+<span class="nt">    0</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;benign&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="nt">    1</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;malignant&quot;</span><span class="p p-Indicator">,</span><span class="w"></span>
+<span class="p p-Indicator">}</span><span class="w"></span>
+
+<span class="nt">model_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resnet50d</span><span class="w"></span>
+<span class="nt">input_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">224</span><span class="w"></span>
+<span class="nt">mean</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.485</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.456</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.406</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">std</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0.229</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.224</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">0.225</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="nt">half</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">plot_gradcam</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span></code>: The input takes in the built-in PeekingDuck <code>img</code> input and outputs the <code>pred_label</code> and <code>pred_score</code>, the former being the predicted labels from <code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">25</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span></code> and the latter, the corresponding probability of the predicted label. On top of that, we also output <code>gradcam_image</code> which is a heatmap overlayed on the input image.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">4</span><span class="p">]</span></code>: The weights of your trained model are stored in the <code>weights_parent_dir</code> directory.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">5</span><span class="o">-</span><span class="mi">13</span><span class="p">]</span></code>: The <code>weights</code> key corresponds to a dictionary:<ul>
+<li><code>model_subdir</code>: The <code>model_subdir</code> is a sub-directory of <code>weights_parent_dir</code> directory. The name should be indicative of the model architecture.</li>
+<li><code>blob_file</code>: The <code>blob_file</code> is the name of the file that contains the trained model weights. For example, if you stored your trained weights <code>resnet50d.zip</code> on Google Cloud Storage, then the <code>blob_file</code> necessarily should be named <code>resnet50d.zip</code> in order for <code>downloader</code> to download the weights from the cloud.</li>
+<li><code>classes_file</code>: The <code>classes_file</code> is the name of the file that contains the mapping between the class labels and their corresponding class names. One can also define it in the current config file as well: <code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">25</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span></code>.</li>
+<li><code>model_file</code>: The <code>model_file</code> is a dictionary that maps the model architecture to the trained model weights name. For example, <code>resnet50d.pt</code> is the weight extracted from <code>resnet50d.zip</code>. This mapping is needed for us to define the <code>model_path</code> in <code>detector.py</code>. See <code>model_path = (self.model_dir / self.config["weights"]["model_file"][model_type])</code> in <code>detector.py</code>.</li>
+</ul>
+</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">15</span><span class="o">-</span><span class="mi">21</span><span class="p">]</span></code>: The <code>model_params</code> key corresponds to a dictionary that will be unpacked in <code>resnet_files/model.py</code>.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">23</span><span class="p">]</span></code>: The <code>num_classes</code> indicates the number of unique classes in the dataset.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">25</span><span class="o">-</span><span class="mi">28</span><span class="p">]</span></code>: The <code>class_label_map</code> key corresponds to a dictionary that maps the class labels to their corresponding class names. This should be exactly the same as <code>classes_file</code> in <code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">8</span><span class="p">]</span></code>.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">30</span><span class="p">]</span></code>: The <code>model_type</code> indicates the model architecture. <strong>This may be redundant since it is defined in the <code>model_params</code> key.</strong></li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">31</span><span class="o">-</span><span class="mi">33</span><span class="p">]</span></code>: These 3 lines are the <strong>transform</strong> parameters, used to preprocess the input image. </li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">34</span><span class="p">]</span></code>: The <code>half</code> parameter indicates whether the model is trained on a half precision or not.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">35</span><span class="p">]</span></code>: The <code>plot_gradcam</code> parameter indicates whether the gradcam heatmap should be plotted or not.</li>
+</ul>
+<h3 id="modelmelanoma_classifierpy">model/melanoma_classifier.py</h3>
+<p>The highlighted lines below basically does the following:</p>
+<ul>
+<li>Convert input image from BGR to RGB;</li>
+<li>Make a prediction on the input image using the trained model;</li>
+<li>Make a heatmap of the input image using the gradcam algorithm;</li>
+<li>
+<p>Return the predicted label and the corresponding probability alongside the heatmap.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">model.melanoma_classifier.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">AbstractNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Initializes and uses a ResNet to predict if an image frame is a melanoma or not.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">node_path</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">plot_gradcam</span><span class="p">:</span> <span class="nb">bool</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">resnet_model</span><span class="o">.</span><span class="n">ResnetModel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_size</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Reads the image input and returns the predicted class label and probability.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inputs (dict): Dictionary with key &quot;img&quot;.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            outputs (dict): Dictionary with keys &quot;pred_label&quot;, &quot;pred_score&quot; and &quot;gradcam_image&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+<span class="hll">        <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;img&quot;</span><span class="p">],</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span>
+<span class="hll">        <span class="n">reshaped_original_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_shape</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">prediction_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</span>
+<span class="hll">        <span class="n">gradcam_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">show_gradcam</span><span class="p">(</span>
+</span><span class="hll">            <span class="n">reshaped_original_image</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_gradcam</span>
+</span><span class="hll">        <span class="p">)</span>
+</span>
+<span class="hll">        <span class="k">return</span> <span class="p">{</span>
+</span><span class="hll">            <span class="o">**</span><span class="n">prediction_dict</span><span class="p">,</span>
+</span><span class="hll">            <span class="s2">&quot;gradcam_image&quot;</span><span class="p">:</span> <span class="n">gradcam_image</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<h3 id="modelresnetsresnet_filesdownloaderpy">model/resnets/resnet_files/downloader.py</h3>
+<p>This script is the same as the one in <a href="https://github.com/aimakerspace/PeekingDuck/blob/dev/peekingduck/weights_utils/downloader.py">PeekingDuck's weights utils</a>. </p>
+<p>The only difference is I changed the global variable <code>BASE_URL</code>:</p>
+<div class="highlight"><span class="filename">Original vs New</span><pre><span></span><code><span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/peekingduck/models&quot;</span>          <span class="c1"># Original</span>
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/reighns/peekingduck/models&quot;</span>  <span class="c1"># New</span>
+</code></pre></div>
+<p>so that I can download the model weights from my own bucket.</p>
+<h3 id="modelresnetsresnet_filesmodelpy">model/resnets/resnet_files/model.py</h3>
+<p>This script contains the <strong>ResNet</strong> model structure with backbone and head. Currently, the model is hardcoded to only take in models from the  <a href="https://github.com/rwightman/pytorch-image-models">famous PyTorch <code>timm</code> library</a>. As this was ported over from my personal project, the name of the class is called <code>CustomNeuralNet</code> instead of a more indicate name such as <code>ResNetModel</code>.</p>
+<h3 id="modelresnetsresnet_filesdetectorpy">model/resnets/resnet_files/detector.py</h3>
+<p>This script contains the <code>Detector</code> class which is used to predict melanoma. </p>
+<h3 id="modelresnetsresnet_modelpy">model/resnets/resnet_model.py</h3>
+<p>This script contains the <code>ResnetModel</code> class which is used to validate configuration, loads the <code>ResNet</code> model through <code>Detector</code>, and performs inference with the method <code>predict</code>.</p>
+<h3 id="pipeline_configyml">pipeline_config.yml</h3>
+<p>Our <code>pipeline_config.yml</code> file to use the <code>input.visual</code> node to read in the images from the <code>melanoma_data/test</code> directory and output the prediction information on the image. Let's walkthrough the file:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pipeline_config.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">nodes</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">custom_nodes.input.visual</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">melanoma_data/test</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom_nodes.model.melanoma_classifier</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">output.csv_writer</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="nt">stats_to_track</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pred_label&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pred_score&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="w">   </span><span class="nt">file_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./stores/artifacts/resnet_melanoma.csv&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="nt">logging_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">draw.legend</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="nt">show</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;filename&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pred_label&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pred_score&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom_nodes.output.screen</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">output.media_writer</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="nt">output_dir </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./stores/artifacts/&quot;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">2</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span></code>: Load the images from the <code>melanoma_data/test</code> directory.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">4</span><span class="p">]</span></code>: The custom node will initiate the trained model and perform inferences. Note it will output the predicted label, probability, and the heatmap of the input image.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">5</span><span class="o">-</span><span class="mi">8</span><span class="p">]</span></code>: The <code>output.csv_writer</code> node will write the prediction information to a csv file. The <code>filename</code> will be the name of the image.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">9</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span></code>: The <code>draw.legend</code> node will show <code>filename</code>, <code>pred_label</code>, and <code>pred_score</code> on the screen.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Line</span> <span class="mi">11</span><span class="p">]</span></code>: The <code>custom_nodes.output.screen</code> node will show both the original image and the heatmap on the screen.</li>
+<li><code class="highlight"><span class="p">[</span><span class="n">Lines</span> <span class="mi">12</span><span class="o">-</span><span class="mi">13</span><span class="p">]</span></code>: The <code>output.media_writer</code> node will write the heatmap and the original image to the <code>./stores/artifacts/</code> directory.</li>
+</ul>
+<h3 id="interpreting-the-csv">Interpreting the CSV</h3>
+<p>Our CSV file contains the following columns:</p>
+<div class="highlight"><pre><span></span><code>Time        filename            pred_label  pred_score
+17:12:46    ISIC_0074311.jpg    benign      99.99732971
+17:12:47    ISIC_0076262.jpg    benign      99.99479055
+17:12:49    ISIC_0098198.jpg    benign      99.9946475
+17:12:50    ISIC_0100550.jpg    benign      99.99884367
+</code></pre></div>
+<p>Something to clarify, our dataset is a binary classification problem and therefore two classes are predicted with their respective "confidence" scores. In our model, we used a <code>Softmax</code> as our final layer activation function, which will return each prediction as an array of <code>shape=(1, 2)</code>. More concretely:</p>
+<p>The first image <code>ISIC_0074311.jpg</code> has a predicted label of <code>benign</code> and a confidence score of <code>99.99732971</code>, but behind the scenes the <code>pred_score</code> is <code>[[9.999733e-01 2.673265e-05]]</code>. If we are less pedantic and treat this as a row vector, then the first element of the array is the probability of the image being a <code>benign</code> image and the second element is the probability of the image being a <code>malignant</code> image. We choose the maximum of the array as our final prediction.</p>
+<h3 id="visualize-results">Visualize Results</h3>
+<p>We take a look at the images saved in our <code>./stores/artifacts/</code> directory.</p>
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311_220515_171934.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262_220515_171935.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198_220515_171936.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550_220515_171938.jpg" width="200" />
+</p>
+
+<p>The below will be the ones with Grad-CAM:</p>
+<p float="left">
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0074311.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0076262.jpg" width="200" /> 
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0098198.jpg" width="200" />
+  <img src="https://storage.googleapis.com/reighns/peekingduck/images/melanoma_gradcam/ISIC_0100550.jpg" width="200" />
+</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../exercise_counter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exercise Counter" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Exercise Counter
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../api/exercise_counter_api/" class="md-footer__link md-footer__link--next" aria-label="Next: Exercise Counter" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Exercise Counter
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="../javascript/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
