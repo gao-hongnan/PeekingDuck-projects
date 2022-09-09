@@ -8,7 +8,7 @@ by Hongnan Gao
 > **This section details some workflow tools that I used for this project.**
 
 ## Setup Main Directory (IDE)
-
+  
 Let us create our main directory for the project:
 
 ```bash title="creating main directory" linenums="1"
@@ -54,7 +54,7 @@ pkd_exercise_counter/
 └── venv_pkd_exercise_counter/
 ```
 
-## Requirements and Setup
+## Requirements and Setup  
 
 !!! note
     We note that `echo > "filename"` command is used to create a file in Windows. One can use `touch` in other OS such as macOS or even `code` if you are using Visual Studio Code.
